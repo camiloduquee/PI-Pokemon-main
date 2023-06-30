@@ -9,16 +9,19 @@ module.exports = (sequelize) => {
       ID: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        allowNull: false,
         primaryKey: true,
       },
       Nombre: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
       },
       Imagen: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          isUrl: true, 
+        }
       },
       Vida: {
         type: DataTypes.INTEGER,

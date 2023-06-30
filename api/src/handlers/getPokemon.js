@@ -1,39 +1,34 @@
-const axios = require("axios");
-
-const pokemonsAll = require("../controllers/pokemonsAll");
+const dataPokemons = require("../controllers/dataPokemons");
+const pokemonsById = require("../controllers/pokemonsById");
+const pokemonName = require("../controllers/pokemonName");
 const URL = "https://pokeapi.co/api/v2/pokemon";
 
- // El front debe comenzar pidiendo 100 datos para guardarlos en un estado global.
-
 const getPokemonAll = async (req, res) => {
-  
+  // El front debe comenzar pidiendo 100 datos para guardarlos en un estado global.
+
   try {
-    // El front debe comenzar pidiendo 100 datos para guardarlos en un estado global.
-    const { offset, limit } = req.query;
-    const { data } = await axios(`${URL}?offset=${offset}&limit=${limit}`);
-    const dataPokemon = pokemonsAll(data);
-    res.status(200).json(dataApi);
+    const { offset, limit, name } = req.query;
+    if (name) {
+      const findName = await pokemonName(name.toLowerCase(), URL);
+      return res.status(200).json(findName);
+    }
+    const pokemonsAll = await dataPokemons(offset, limit, URL);
+    res.status(200).json(pokemonsAll);
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(404).json(error.message);
   }
 };
-const getPokemonName = async (req, res) => {
-    try {
-        
-    } catch (error) {
-        
-    }
-    }
 const getPokemonsById = async (req, res) => {
-        try {
-            
-        } catch (error) {
-            
-        }
-    }
-   
+  try {
+    const { idPokemon } = req.params;
+
+    const findId = await pokemonsById(idPokemon, URL);
+    res.status(200).json(findId);
+  } catch (error) {
+    res.status(403).json(error.message);
+  }
+};
 module.exports = {
-    getPokemonAll,
-    getPokemonName,
-    getPokemonsById
+  getPokemonAll,
+  getPokemonsById,
 };
