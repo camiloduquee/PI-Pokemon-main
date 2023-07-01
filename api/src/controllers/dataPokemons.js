@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 const { dataFind } = require("../helpers/variables");
 
 const dataPokemons = async (offset, limit, URL) => {
@@ -23,15 +23,18 @@ const dataPokemons = async (offset, limit, URL) => {
   };
   const pokemons = await Promise.all(
     routes.map(async (route) => {
-      return await axios(route).then(
-        ({ data }) =>
-        dataFind(data)
-      );
+      return await axios(route).then(({ data }) => dataFind(data));
     })
   );
-  const pokemonsDB = await Pokemon.findAll();
+  const pokemonsDB = await Pokemon.findAll({
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
+      },
+    },
+  });
   dataApi.pokemonsAll = pokemonsDB.concat(pokemons);
-
   return dataApi;
 };
 module.exports = dataPokemons;
