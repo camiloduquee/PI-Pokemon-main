@@ -12,6 +12,7 @@ module.exports = (sequelize) => {
     Nombre: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique:true,
     }
         
   },{ timestamps: false });

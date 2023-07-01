@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { dataFind } = require("../helpers/variables");
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 
 const pokemonsById = async (idPokemon, URL) => {
   const responseApi = await axios(`${URL}/${idPokemon}`)
@@ -14,11 +14,16 @@ const pokemonsById = async (idPokemon, URL) => {
     return dataFind(responseApi);
   }
   const pokemonsDB = await Pokemon.findAll({
-    where: {
+    where: { 
       ID: idPokemon,
       isIn: {
-        msg:"no se encontro ningun id relacionado con el pokemon (UUIDV)"
-        
+        msg: "no se encontro ningun id relacionado con el pokemon (UUIDV)",
+      }, 
+    },
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
       },
     },
   });

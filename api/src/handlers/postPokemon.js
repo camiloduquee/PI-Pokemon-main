@@ -12,9 +12,10 @@ const postPokemon = async (req, res) => {
       Velocidad,
       Altura,
       Peso,
+      Tipo
     } = req.body;
 
-    if ( !Nombre || !Imagen || !Vida || !Ataque || !Defensa) throw new Error('Faltan datos')
+    if ( !Nombre || !Imagen || !Vida || !Ataque || !Defensa || !Tipo) throw new Error('Faltan datos')
     const newPost = await pokemonNew(
         {
         Nombre,
@@ -24,7 +25,8 @@ const postPokemon = async (req, res) => {
         Defensa,
         Velocidad,
         Altura,
-        Peso
+        Peso,
+        Tipo
         }
         ,URL
       );

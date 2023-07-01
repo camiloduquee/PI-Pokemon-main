@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { dataFind } = require("../helpers/variables");
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 
 const pokemonName = async (name, URL) => {
   const responseApi = await axios(`${URL}/${name}`)
@@ -17,6 +17,12 @@ const pokemonName = async (name, URL) => {
   const pokemonsDB = await Pokemon.findAll({
     where: {
       Nombre: name,
+    },
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
+      },
     },
   });
 

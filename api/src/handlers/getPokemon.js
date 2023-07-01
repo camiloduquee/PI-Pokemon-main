@@ -5,7 +5,6 @@ const URL = "https://pokeapi.co/api/v2/pokemon";
 
 const getPokemonAll = async (req, res) => {
   // El front debe comenzar pidiendo 100 datos para guardarlos en un estado global.
-
   try {
     const { offset, limit, name } = req.query;
     if (name) {
