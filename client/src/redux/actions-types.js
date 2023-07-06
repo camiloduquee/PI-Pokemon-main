@@ -1,1 +1,4 @@
-export const ALL_POKEMONS = 'ALL_POKEMONS';
+const ALL_POKEMONS = 'ALL_POKEMONS';
+
+
+export {ALL_POKEMONS};
