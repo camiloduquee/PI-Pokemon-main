@@ -9,7 +9,7 @@ const roorReducer = (state = initialState, action) => {
         case ALL_POKEMONS:
             return {
                 ...state,
-                allPokemons: action.payload,
+                allPokemons: action.payload
             }
         default:
             return {

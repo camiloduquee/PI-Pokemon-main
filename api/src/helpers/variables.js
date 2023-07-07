@@ -18,7 +18,7 @@ const dataFind = (data) => {
     Velocidad: data.stats[5].base_stat,
     Altura: data.height,
     Peso: data.weight,
-    tipo: data.types.map((element) => element.type.name),
+    Tipo: data.types.map((element) => element.type.name),
   };
   return obj;
 };

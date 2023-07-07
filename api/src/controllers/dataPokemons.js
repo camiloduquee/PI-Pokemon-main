@@ -2,30 +2,7 @@ const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 const { dataFind } = require("../helpers/variables");
 
-const dataPokemons = async (offset, limit, URL) => {
-  const { data } = await axios(`${URL}?offset=${offset}&limit=${limit}`);
-  const routes = data.results.map((route) => {
-    return route.url;
-  });
-  const dataApi = {
-    next: data.next
-      ? data.next.replace(
-          "https://pokeapi.co/api/v2/pokemon",
-          "http://localhost:3001/pokemons"
-        )
-      : null,
-    previous: data.previous
-      ? data.previous.replace(
-          "https://pokeapi.co/api/v2/pokemon",
-          "http://localhost:3001/pokemons"
-        )
-      : null,
-  };
-  const pokemons = await Promise.all(
-    routes.map(async (route) => {
-      return await axios(route).then(({ data }) => dataFind(data));
-    })
-  );
+const dataPokemons = async (URL, limit, offset) => {
   const pokemonsDB = await Pokemon.findAll({
     include: {
       model: Type,
@@ -34,7 +11,41 @@ const dataPokemons = async (offset, limit, URL) => {
       },
     },
   });
-  dataApi.pokemonsAll = pokemonsDB.concat(pokemons);
-  return dataApi;
+
+  async function fetchData(url) {
+    const { data } = await axios(url);
+    const routes = data.results.map((route) => {
+      return route.url;
+    });
+    const promise = routes.map(async (pokemon) => {
+      const { data } = await axios(pokemon);
+      return dataFind(data);
+    });
+    data.results = await Promise.all(promise);
+    data.results = pokemonsDB.concat(data.results);
+    return data;
+  }
+
+  async function recursiveFetch(url, accumulatedData = []) {
+    const data = await fetchData(url);
+    accumulatedData = [...accumulatedData, data.results];
+
+    if (data.next) {
+      return recursiveFetch(data.next, accumulatedData);
+    }
+
+    return accumulatedData;
+  }
+
+  async function main() {
+    if (limit || offset) {
+      return fetchData(`${URL}?offset=${offset}&limit=${limit}`);
+    }
+
+    const apiData = await recursiveFetch(`${URL}?offset=${0}&limit=${120}`);
+    return apiData;
+  }
+
+  return main();
 };
 module.exports = dataPokemons;

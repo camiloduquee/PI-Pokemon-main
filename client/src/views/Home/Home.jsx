@@ -8,12 +8,18 @@ const Home = () => {
   const dispatch = useDispatch();
   const [pokemonsPage, setPokemonsPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
+  const [dataUrl, setDataUrl] = useState(
+    "http://localhost:3001/pokemons"
+  );
 
   const lastIndex = currentPage * pokemonsPage;
   const firstIndex = lastIndex - pokemonsPage;
 
+  
   useEffect(() => {
-    dispatch(allPokemons());
+
+    dispatch(allPokemons(dataUrl));
+    
   }, []);
 
   return (
@@ -27,6 +33,7 @@ const Home = () => {
           pokemonsPage={pokemonsPage}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          
         />
       </div>
     </div>
