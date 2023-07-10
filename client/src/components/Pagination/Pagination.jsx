@@ -4,27 +4,21 @@ import backArrow from "../../assets/svg/backArrow.svg";
 import forwardArrow from "../../assets/svg/forwardArrow.svg";
 import { useState } from "react";
 
-const Pagination = ({
-  pokemonsPage,
-  currentPage,
-  setCurrentPage,
-}) => {
- 
+const Pagination = ({ pokemonsPage, currentPage, setCurrentPage }) => {
   const pageNumbers = [];
-  // const allPokemons = useSelector((state) => state.allPokemons);
+  const allPokemons = useSelector((state) => state.allPokemons);
+  if(allPokemons.results)
 
-  for (let i = 1; i <= Math.ceil(120 / pokemonsPage); i++) {
-    pageNumbers.push(i);
-    
-  }
-  
-  const handleButtonPrev = () => {
+    for (let i = 1; i <= Math.ceil(allPokemons.results?.length / pokemonsPage); i++) {
+      pageNumbers.push(i);
+    }
  
+  const handleButtonPrev = () => {
     setCurrentPage(currentPage - 1);
   };
 
   const handleButtonNext = () => {
-      setCurrentPage(currentPage + 1);
+    setCurrentPage(currentPage + 1);
   };
 
   const handleButtonPage = (n) => {

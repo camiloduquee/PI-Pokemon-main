@@ -13,12 +13,10 @@ const pokemonsById = async (idPokemon, URL) => {
   if (Object.keys(responseApi).length !== 0) {
     return dataFind(responseApi);
   }
+ 
   const pokemonsDB = await Pokemon.findAll({
     where: { 
-      ID: idPokemon,
-      isIn: {
-        msg: "no se encontro ningun id relacionado con el pokemon (UUIDV)",
-      }, 
+      ID: idPokemon ,
     },
     include: {
       model: Type,
@@ -29,7 +27,7 @@ const pokemonsById = async (idPokemon, URL) => {
   });
 
   if (pokemonsDB.length) {
-    return pokemonsDB;
+      return pokemonsDB[0];
   }
   throw new Error("No se encontro ningun pokemon con ese id.");
 };

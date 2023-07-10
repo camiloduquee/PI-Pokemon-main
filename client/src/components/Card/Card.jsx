@@ -1,18 +1,17 @@
 import style from "./Card.module.css";
+import { Link } from "react-router-dom";
+import ImageComp from "../../helpers/ImageComp";
+import TypesName from "../Types/Types";
 
 const Card = (props) => {
+  
   return (
     <div className={style.container}>
-      <p>{props.ID}</p>
-      {/* <p>{props.Imagen}</p> */} 
-      <p>{props.Nombre}</p>
-      <p>{props.Vida}</p>
-      <p>{props.Ataque}</p>
-      <p>{props.Defensa}</p>
-      <p>{props.Velocidad}</p>
-      <p>{props.Altura}</p>
-      <p>{props.Peso}</p>
-      {/* <p>{props.Types}</p> */}
+      <ImageComp imageUrl={props.Imagen} />
+      <Link to={`/detail/${props.ID}`}>
+        <h1>{props.Nombre}</h1>
+      </Link>
+     <TypesName Tipos={props.Tipos}/>
     </div>
   );
 };

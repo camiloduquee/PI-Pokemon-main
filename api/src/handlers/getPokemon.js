@@ -20,7 +20,7 @@ const getPokemonAll = async (req, res) => {
 const getPokemonsById = async (req, res) => {
   try {
     const { idPokemon } = req.params;
-
+   
     const findId = await pokemonsById(idPokemon, URL);
     res.status(200).json(findId);
   } catch (error) {

@@ -3,6 +3,7 @@ const { Pokemon, Type } = require("../db");
 const { dataFind } = require("../helpers/variables");
 
 const dataPokemons = async (URL, limit, offset) => {
+
   const pokemonsDB = await Pokemon.findAll({
     include: {
       model: Type,
@@ -28,13 +29,16 @@ const dataPokemons = async (URL, limit, offset) => {
 
   async function recursiveFetch(url, accumulatedData = []) {
     const data = await fetchData(url);
-    accumulatedData = [...accumulatedData, data.results];
+    accumulatedData = accumulatedData.concat(data.results);
+    const dataApi = {};
+    dataApi.results = accumulatedData;
+
 
     if (data.next) {
       return recursiveFetch(data.next, accumulatedData);
     }
 
-    return accumulatedData;
+    return dataApi;
   }
 
   async function main() {

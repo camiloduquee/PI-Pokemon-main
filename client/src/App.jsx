@@ -9,9 +9,9 @@ function App() {
       {location.pathname !== "/" && <NavBar />}
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/landing" element={<Landing />} />
-        <Route path="/Form" element={<Form />} />
-        <Route path="/Detail" element={<Detail />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/detail/:ID" element={<Detail />} />
       </Routes>
     </div>
   );

@@ -14,14 +14,14 @@ module.exports = (sequelize) => {
       Nombre: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
       },
       Imagen: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isUrl: true, 
-        }
+          isUrl: true,
+        },
       },
       Vida: {
         type: DataTypes.INTEGER,
@@ -44,7 +44,6 @@ module.exports = (sequelize) => {
       Peso: {
         type: DataTypes.INTEGER,
       },
-      
     },
     { timestamps: false }
   );
