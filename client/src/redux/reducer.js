@@ -1,7 +1,8 @@
-import { ALL_POKEMONS } from "./actions-types";
+import { ALL_POKEMONS, ALL_TYPES } from "./actions-types";
 
 const initialState = {
     allPokemons: [],
+    allTypes:[]
 }
 
 const roorReducer = (state = initialState, action) => {
@@ -11,6 +12,12 @@ const roorReducer = (state = initialState, action) => {
                 ...state,
                 allPokemons: action.payload
             }
+        case ALL_TYPES:
+                return {
+                    ...state,
+                    allTypes: action.payload
+                }
+        
         default:
             return {
                 ...state

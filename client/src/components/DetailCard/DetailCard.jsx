@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ImageComp from "../../helpers/ImageComp";
-import TypesName from "../Types/Types";
+import TypesName from "../TypesName/TypesName";
 
 const DetailCard = ({ character }) => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ return (
           <h3>{character.Vida}</h3>
           <h3>{character.Ataque}</h3>
           <h3>{character.Defensa}</h3>
-          <h3>{character.Velovidad}</h3>
+          {character.Velocidad ? <h3>{character.Velocidad}</h3> : ""}
           {character.Altura ? <h4>{character.Altura}</h4> : ""}
           {character.Peso ? <h4>{character.Peso}</h4> : ""}
           <TypesName Tipos={character.Types}/>
