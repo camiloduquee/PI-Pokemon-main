@@ -5,7 +5,7 @@ import style from "../Form/F.module.css";
 import validation from "./validation";
 
 const Form = () => {
-  const tipos = useSelector((state) => state.allTypes);
+  const Tipos = useSelector((state) => state.allTypes);
   // -------------  Estados ----------
   const [estadoModal, setEstadoModal] = useState(false);
   const [pokemonData, setPokemonData] = useState({
@@ -17,7 +17,7 @@ const Form = () => {
     Velocidad: 0,
     Altura: 0,
     Peso: 0,
-    Tipos: [],
+    Tipo: [],
   });
   const [errors, setErrors] = useState({
     Nombre: "",
@@ -28,14 +28,18 @@ const Form = () => {
     Velocidad: 0,
     Altura: 0,
     Peso: 0,
-    Tipos: [],
+    Tipo: [],
   });
 
   // ----------- Funciones ---------
 
   const handleInputChange = (event) => {
     const property = event.target.name;
-    const value = event.target.value;
+    let value = event.target.value;
+        
+    if(["Vida","Ataque","Defensa","Velocidad","Altura","Peso"].includes(property)){
+      value = Number(value);
+    }
     setPokemonData({
       ...pokemonData,
       [property]: value,
@@ -55,23 +59,23 @@ const Form = () => {
     if (checked) {
       setPokemonData({
         ...pokemonData,
-        [property]: [...pokemonData.Tipos, value],
+        [property]: [...pokemonData.Tipo, value],
       });
       setErrors(
         validation({
           ...pokemonData,
-          [property]: [...pokemonData.Tipos, value],
+          [property]: [...pokemonData.Tipo, value],
         })
       );
     } else {
       setPokemonData({
         ...pokemonData,
-        [property]: [...pokemonData.Tipos].filter((item) => item !== value),
+        [property]: [...pokemonData.Tipo].filter((item) => item !== value),
       });
       setErrors(
         validation({
           ...pokemonData,
-          [property]: [...pokemonData.Tipos].filter((item) => item !== value),
+          [property]: [...pokemonData.Tipo].filter((item) => item !== value),
         })
       );
     }
@@ -106,7 +110,7 @@ const Form = () => {
     }
   };
   const handleAddTypes = () => {
-    if (!errors.Tipos) {
+    if (!errors.Tipo) {
       setEstadoModal(false);
     }
   };
@@ -202,17 +206,17 @@ const Form = () => {
               setEstadoModal(!estadoModal);
               setPokemonData({
                 ...pokemonData,
-                Tipos: [],
+                Tipo: [],
               });
             }}
           >
-            Tipos de pokemón
+            Tipo de pokemón
           </button>
         
         {!estadoModal && (
           <div className={style.containertipos}>
-            {tipos.map((Element) => {
-              const result = pokemonData.Tipos.includes(Element.ID);
+            {Tipos.map((Element) => {
+              const result = pokemonData.Tipo.includes(Element.ID);
               return result && 
               <div 
               key={Element.ID}
@@ -231,11 +235,11 @@ const Form = () => {
           pokemonData={pokemonData}
         >
           <div className={style.contenido}>
-            {tipos.map((tipo) => {
+            {Tipos.map((tipo) => {
               return (
                 <div key={tipo.ID}>
                   <input
-                    name="Tipos"
+                    name="Tipo"
                     value={tipo.ID}
                     type="checkbox"
                     onChange={handleChange}
@@ -249,14 +253,14 @@ const Form = () => {
             <button
               type="button"
               onClick={handleAddTypes}
-              disabled={errors.Tipos ? true : false}
+              disabled={errors.Tipo ? true : false}
             >
               Agregar
             </button>
           </div>
         </Modal>
         <div>
-          <button type="submit">Enviar</button>
+          <button type="submit">Crear</button>
         </div>
       </form>
     </div>

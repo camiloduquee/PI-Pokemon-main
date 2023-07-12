@@ -29,9 +29,9 @@ if(!isValidImageUrl(pokemonData.Imagen))
         errors.Imagen = "Ingresa una url valida de una imagen";
     }
 
-if (pokemonData.Tipos.length === 0 || pokemonData.Tipos.length > 2) 
+if (pokemonData.Tipo.length === 0 || pokemonData.Tipo.length > 2) 
     {
-        errors.Tipos = "Debes seleccionar una (1) o dos (2) opciones.";
+        errors.Tipo = "Debes seleccionar una (1) o dos (2) opciones.";
     }
 
 return errors;
