@@ -2,7 +2,7 @@ import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import { useEffect, useState } from "react";
 import {  useDispatch } from "react-redux";
-import { allPokemons } from "../../redux/actions";
+import { allPokemons, allTypes } from "../../redux/actions";
 import { Loader } from "../../components/Loader/Loader";
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
 useEffect(() => {
     
     dispatch(allPokemons("http://localhost:3001/pokemons?offset=0&limit=120"));
-    
+    dispatch(allTypes("http://localhost:3001/types"));
 }, []);
  
 
