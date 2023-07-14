@@ -1,14 +1,14 @@
 import React from "react";
 import style from "./Modal.module.css";
 
-const Modal = ({ children, state, changeStatus, setPokemonData, pokemonData }) => {
+const Modal = ({ children, state, changeStatus, setPokemonData, pokemonData,titulo }) => {
   return (
     <>
       {state && (
         <div className={style.overlay}>
           <div className={style.container}>
             <div className={style.title}>
-              <h3>Tipos de Pokemón</h3>
+              {titulo}
             </div>
             <button
               className={style.button}

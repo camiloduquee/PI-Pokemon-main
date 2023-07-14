@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ImageComp from "../../helpers/ImageComp";
 import TypesName from "../TypesName/TypesName";
@@ -19,6 +18,7 @@ return (
         <div>
           <h1>{character.Nombre}</h1>
           <ImageComp imageUrl={character.Imagen}/>
+          <h3>{character.ID}</h3>
           <h3>{character.Vida}</h3>
           <h3>{character.Ataque}</h3>
           <h3>{character.Defensa}</h3>

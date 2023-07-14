@@ -4,14 +4,13 @@ import ImageComp from "../../helpers/ImageComp";
 import TypesName from "../TypesName/TypesName";
 
 const Card = (props) => {
-  
   return (
-    <div className={style.container}>
-      <ImageComp imageUrl={props.Imagen} />
+    <div className={style.grid}>
+      <ImageComp className={style.image} imageUrl={props.Imagen} />
       <Link to={`/detail/${props.ID}`}>
         <h1>{props.Nombre}</h1>
       </Link>
-     <TypesName Tipos={props.Tipos}/>
+      <TypesName Tipos={props.Tipos} />
     </div>
   );
 };

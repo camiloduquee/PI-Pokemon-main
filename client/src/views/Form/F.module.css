@@ -1,9 +1,12 @@
+.container{
+ padding-top: 10vh; 
+}
+
 .contenido {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  
 }
 h1 {
   font-size: 42px;

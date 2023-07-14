@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const CardsContainer = ({ firstIndex, lastIndex }) => {
   const { results } = useSelector((state) => state.allPokemons);
   return (
-    <div className={style.container}>
+    <div className={style.containerCards}>
       {results
         ?.map((property) => {
           return (

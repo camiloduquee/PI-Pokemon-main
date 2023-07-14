@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const pokemonNew = async (post, URL) => {
   const countTable = await Type.count();
-  const currentValue = (value) => value < countTable;
+  const currentValue = (value) => value <= countTable;
   const responseApi = await axios(`${URL}/${post.Nombre.toLowerCase()}`)
     .then((response) => {
       return response.status;

@@ -3,11 +3,17 @@ import { useSelector } from "react-redux";
 import Modal from "../../components/Modal/Modal";
 import style from "../Form/F.module.css";
 import validation from "./validation";
+import postForm from "./postForm";
 
 const Form = () => {
   const Tipos = useSelector((state) => state.allTypes);
   // -------------  Estados ----------
   const [estadoModal, setEstadoModal] = useState(false);
+  const [stateMenss, setStateMenss] = useState(false);
+  const [menssage, setMenssage] = useState({
+    Nombre: "",
+    Error: "",
+  });
   const [pokemonData, setPokemonData] = useState({
     Nombre: "",
     Imagen: "",
@@ -36,10 +42,16 @@ const Form = () => {
   const handleInputChange = (event) => {
     const property = event.target.name;
     let value = event.target.value;
-        
-    if(["Vida","Ataque","Defensa","Velocidad","Altura","Peso"].includes(property)){
+
+    if (
+      ["Vida", "Ataque", "Defensa", "Velocidad", "Altura", "Peso"].includes(
+        property
+      )
+    ) {
       value = Number(value);
+ 
     }
+
     setPokemonData({
       ...pokemonData,
       [property]: value,
@@ -81,11 +93,16 @@ const Form = () => {
     }
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!Object.values(errors).length) {
-      // mando mi funcion para mandar los datos a la base de datos
-      pokemonData({
+      setStateMenss(true);
+      const data = await postForm(pokemonData);
+      setMenssage({
+        Nombre: data.Nombre,
+        Error: data.Error,
+      });
+      setPokemonData({
         Nombre: "",
         Imagen: "",
         Vida: 0,
@@ -94,6 +111,7 @@ const Form = () => {
         Velocidad: 0,
         Altura: 0,
         Peso: 0,
+        Tipo: [],
       });
       setErrors({
         Nombre: "",
@@ -104,11 +122,20 @@ const Form = () => {
         Velocidad: 0,
         Altura: 0,
         Peso: 0,
+        Tipo: [],
       });
     } else {
-      alert("Debes corregir los errores");
+      const data = {
+        Error: "Debes corregir los errores",
+      };
+      setStateMenss(true);
+      setMenssage({
+        Nombre: data.Nombre,
+        Error: data.Error,
+      });
     }
   };
+
   const handleAddTypes = () => {
     if (!errors.Tipo) {
       setEstadoModal(false);
@@ -116,12 +143,13 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <form onSubmit={handleSubmit}>
         <div>Crear Pokemón</div>
         <div>
-          <label htmlFor="Nombre">Nombre</label>
+          <label htmlFor="NombreForm">Nombre</label>
           <input
+            id="NombreForm"
             type="text"
             placeholder="Nombre del Pokemón"
             name="Nombre"
@@ -129,8 +157,9 @@ const Form = () => {
             onChange={handleInputChange}
           />
 
-          <label htmlFor="Imagen">Imagen</label>
+          <label htmlFor="ImagenForm">Imagen</label>
           <input
+            id="ImagenForm"
             type="text"
             placeholder="Pokemón imagen..."
             name="Imagen"
@@ -138,60 +167,66 @@ const Form = () => {
             onChange={handleInputChange}
           />
           <div>
-            <label htmlFor="Vida">Vida</label>
+            <label htmlFor="VidaForm">Vida</label>
             <input
+              id="VidaForm"
               type="range"
-              min={1}
+              min={0}
               max={100}
               name="Vida"
               value={pokemonData.Vida}
               onChange={handleInputChange}
             />
 
-            <label htmlFor="Ataque">Ataque</label>
+            <label htmlFor="AtaqueForm">Ataque</label>
             <input
+              id="AtaqueForm"
               type="range"
-              min={1}
+              min={0}
               max={100}
               name="Ataque"
               value={pokemonData.Ataque}
               onChange={handleInputChange}
             />
 
-            <label htmlFor="Defensa">Defensa</label>
+            <label htmlFor="DefensaForm">Defensa</label>
             <input
+              id="DefensaForm"
               type="range"
-              min={1}
+              min={0}
               max={100}
               name="Defensa"
               value={pokemonData.Defensa}
               onChange={handleInputChange}
             />
 
-            <label htmlFor="Velocidad">Velocidad</label>
+            <label htmlFor="VelocidadForm">Velocidad</label>
             <input
+              id="VelocidadForm"
               type="range"
-              min={1}
+              min={0}
               max={100}
               name="Velocidad"
               value={pokemonData.Velocidad}
               onChange={handleInputChange}
             />
 
-            <label htmlFor="Altura">Altura</label>
+            <label htmlFor="AlturaForm">Altura</label>
             <input
+              id="AlturaForm"
               type="range"
-              min={1}
+              min={0}
               max={100}
               name="Altura"
               value={pokemonData.Altura}
               onChange={handleInputChange}
             />
 
-            <label htmlFor="Peso">Peso</label>
+            <label htmlFor="PesoForm">Peso</label>
             <input
+              id="PesoForm"
               type="range"
-              min={1}
+              min={0}
               max={1000}
               name="Peso"
               value={pokemonData.Peso}
@@ -212,27 +247,28 @@ const Form = () => {
           >
             Tipo de pokemón
           </button>
-        
-        {!estadoModal && (
-          <div className={style.containertipos}>
-            {Tipos.map((Element) => {
-              const result = pokemonData.Tipo.includes(Element.ID);
-              return result && 
-              <div 
-              key={Element.ID}
-              className={style.containerBox}
-              >
-              {Element.Nombre}
-              </div>;
-            })}
-          </div>
-        )}
+
+          {!estadoModal && (
+            <div className={style.containertipos}>
+              {Tipos.map((Element) => {
+                const result = pokemonData.Tipo.includes(Element.ID);
+                return (
+                  result && (
+                    <div key={Element.ID} className={style.containerBox}>
+                      {Element.Nombre}
+                    </div>
+                  )
+                );
+              })}
+            </div>
+          )}
         </div>
         <Modal
           state={estadoModal}
           changeStatus={setEstadoModal}
           setPokemonData={setPokemonData}
           pokemonData={pokemonData}
+          titulo="Tipos de pokemón"
         >
           <div className={style.contenido}>
             {Tipos.map((tipo) => {
@@ -257,6 +293,28 @@ const Form = () => {
             >
               Agregar
             </button>
+          </div>
+        </Modal>
+        <Modal
+          state={stateMenss}
+          changeStatus={setStateMenss}
+          setPokemonData={setPokemonData}
+          pokemonData={pokemonData}
+          titulo="Alerta"
+        >
+          <div className={style.contenido}>
+            {menssage.Error ? (
+              <div>
+                <p>{menssage.Error}</p>
+              </div>
+            ) : (
+              <div>
+                <p>
+                  Se ha creado satisfactoreamente tu pokemon con el nombre{" "}
+                  {menssage.Nombre}
+                </p>
+              </div>
+            )}
           </div>
         </Modal>
         <div>

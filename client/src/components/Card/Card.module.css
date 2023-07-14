@@ -1,6 +1,4 @@
-.container{
-    border: 1px solid black;
-    width: 25vw;
-    height: fit-content;
-    border-radius: 10px;    
-}
+  .image {
+   width: 30%;
+   height: 30%;
+  }

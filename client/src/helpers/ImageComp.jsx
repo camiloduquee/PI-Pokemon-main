@@ -10,13 +10,13 @@ const ImageComp = ({ imageUrl }) => {
 
   const renderImage = () => {
     if (validateImageUrl(imageUrl)) {
-      return <img src={imageUrl} alt="Imagen" />;
+      return <img src={imageUrl} alt="Imagen" style={{width: "200px", height: "200px"}}/>;
     } else {
       return <img src={defaultImageUrl} alt="Imagen por defecto" />;
     }
   };
 
-  return <div>{renderImage()}</div>;
+  return <>{renderImage()}</>;
 };
 
 export default ImageComp;

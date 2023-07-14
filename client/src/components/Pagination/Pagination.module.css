@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
   list-style: none;
-  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
   padding: 0;
   gap: 3vw;
 }
@@ -69,4 +70,9 @@ button[disabled] {
 .btnActive {
   background-color: #087f5b;
   color: #fff;
+}
+@media (max-width: 768px){
+  .ul {
+    display: none; 
+  }   
 }
