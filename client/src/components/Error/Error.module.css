@@ -1,21 +1,15 @@
-.menssage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 70%;
-    background-color: #457b9d;
+.menssageError {
+    background-color: #e63946;
     margin: 3vh;
     padding: 1em;
-    height: 30px;
+    height: 50px;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
     -webkit-box-shadow: 14px 11px 13px -12px rgba(18, 18, 18, 0.69);
     -moz-box-shadow: 14px 11px 13px -12px rgba(18, 18, 18, 0.69);
     box-shadow: 14px 11px 13px -12px rgba(18, 18, 18, 0.69);
   }
-  .menssage h4 {
+  .menssageError p {
     color: #fff;
     text-align: center;
   }
-  

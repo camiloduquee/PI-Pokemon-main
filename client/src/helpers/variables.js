@@ -1,4 +1,3 @@
-const endpointPost = "http://localhost:3001/pokemons";
+const endpoint = "http://localhost:3001/pokemons";
 
-
-export {endpointPost};
+export {endpoint};

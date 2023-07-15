@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { Children } from "react";
+import style from "./Message.module.css";
 
-export const Message = () => {
+const Message = ({children, menssage}) => {
   return (
-    <div>
-        <h2>Mensaje</h2>
+    <div className={style.menssage}>
+      <h4>{menssage}</h4>
+      {children}
     </div>
-  )
-}
+  );
+};
+export default Message;

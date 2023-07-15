@@ -6,6 +6,7 @@
   align-items: center;
   height: 60px;
   background: #1D3557;
+  z-index: 2;
 }
 .nav_logo {
   font-weight: bold;

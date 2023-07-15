@@ -7,7 +7,6 @@ const DetailCard = ({ character }) => {
   const backToTheHome = () => {
     navigate("/home");
   };
-
 return (
     <>
       <h1>Estoy en el detalle de la carta </h1>

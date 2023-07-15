@@ -27,7 +27,6 @@ const Home = () => {
       </div>
       <div>
         {loader && <Loader />}
-        <h1>Esta es la vista de Home</h1>
         <CardsContainer lastIndex={lastIndex} firstIndex={firstIndex} />
       </div>
       <div className={style.containerPage}>

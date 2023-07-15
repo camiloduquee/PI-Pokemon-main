@@ -1,0 +1,32 @@
+.inputWrapper {
+  position: relative;
+  width: 60%;
+  text-align: center;
+  border-color: #1d3557;
+  z-index: 1;
+}
+.input {
+  box-sizing: border-box;
+  color: #191919;
+  padding: 15px 15px 15px 15px;
+  width: 100%;
+}
+.inputIcon {
+  position: absolute;
+  height: 100%;
+  padding: 5px;
+  right: -2px;
+  top: 50%;
+  border: #ffffff4c 1px solid;
+  transform: translateY(-50%);
+  background-color: #457b9d;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+.inputIcon:hover {
+  background-color: #1d3557;
+  border: 1px solid rgba(216, 216, 216, 0.323);
+}
+.img {
+  filter: invert(100%);
+}
