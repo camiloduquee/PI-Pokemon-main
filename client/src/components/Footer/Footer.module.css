@@ -1,0 +1,13 @@
+.container {
+  height: auto;
+  background-color: #1d3557;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-top: auto;
+}
+.icon{
+    filter: invert(100%); 
+    width: 25px;
+    margin: 5px 10px 0px 0px;   
+}

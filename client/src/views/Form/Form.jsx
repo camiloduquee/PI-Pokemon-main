@@ -4,6 +4,7 @@ import Modal from "../../components/Modal/Modal";
 import style from "../Form/F.module.css";
 import validation from "./validation";
 import postForm from "./postForm";
+import Footer from "../../components/Footer/Footer";
 
 const Form = () => {
   const Tipos = useSelector((state) => state.allTypes);
@@ -321,6 +322,7 @@ const Form = () => {
           <button type="submit">Crear</button>
         </div>
       </form>
+      <Footer />
     </div>
   );
 };

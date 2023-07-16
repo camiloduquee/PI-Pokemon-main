@@ -1,5 +1,8 @@
 .container{
- padding-top: 10vh; 
+ padding-top: 10vh;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh; 
 }
 
 .contenido {

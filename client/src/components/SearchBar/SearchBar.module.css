@@ -11,6 +11,9 @@
   padding: 15px 15px 15px 15px;
   width: 100%;
 }
+.input:focus {
+  border: 1px solid #1D3557;
+}
 .inputIcon {
   position: absolute;
   height: 100%;

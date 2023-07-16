@@ -1,11 +1,10 @@
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    margin: 0;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
-p{
-    font-size: clamp(10px, 2vw, 22px);
+p {
+  font-size: clamp(10px, 2vw, 22px);
 }
-h4{
-    font-size: clamp(10px, 2vw, 22px);
-
+h4 {
+  font-size: clamp(10px, 2vw, 22px);
 }

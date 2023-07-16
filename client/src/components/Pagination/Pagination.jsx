@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import style from "./Pagination.module.css";
 import backArrow from "../../assets/svg/backArrow.svg";
 import forwardArrow from "../../assets/svg/forwardArrow.svg";
-import { useState } from "react";
 
 const Pagination = ({ pokemonsPage, currentPage, setCurrentPage }) => {
   const pageNumbers = [];
@@ -31,7 +30,11 @@ const Pagination = ({ pokemonsPage, currentPage, setCurrentPage }) => {
         className={style.btn}
         onClick={handleButtonPrev}
       >
-        <img src={backArrow}></img>
+        <img 
+        className={style.svg} 
+        src={backArrow}
+        disabled={currentPage === 1 ? true : false}
+        ></img>
       </button>
       <ul className={style.ul}>
         {pageNumbers.map((Element, index) => (
@@ -44,6 +47,7 @@ const Pagination = ({ pokemonsPage, currentPage, setCurrentPage }) => {
             >
               {Element}
             </a>
+                     
           </li>
         ))}
       </ul>
@@ -52,7 +56,11 @@ const Pagination = ({ pokemonsPage, currentPage, setCurrentPage }) => {
         onClick={handleButtonNext}
         disabled={currentPage >= pageNumbers.length ? true : false}
       >
-        <img src={forwardArrow}></img>
+        <img 
+        className={style.svg} 
+        src={forwardArrow}
+        disabled={currentPage >= pageNumbers.length ? true : false}
+        ></img>
       </button>
     </nav>
   );

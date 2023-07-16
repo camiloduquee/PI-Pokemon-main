@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { allPokemons, allTypes } from "../../redux/actions";
 import { Loader } from "../../components/Loader/Loader";
 import style from "./Home.module.css";
+import Filter from "../../components/Filter/Filter";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -21,9 +23,10 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <div className={style.containerSearchBar}>
+    <div className={style.containerHome}>
+      <div className={style.containerTop}>
         <SearchBar />
+        <Filter />
       </div>
       <div>
         {loader && <Loader />}
@@ -36,7 +39,8 @@ const Home = () => {
           setCurrentPage={setCurrentPage}
         />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 export default Home;
