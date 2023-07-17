@@ -1,0 +1,62 @@
+.containerFilter {
+  display: flex;
+  justify-content: flex-start;
+
+  position: fixed;
+  top: 0;
+  left: -400px;
+  width: 350px;
+  padding-left: 10px;
+
+  color: #555;
+  background-color: #f2f2f2;
+  height: 100%;
+  padding-top: 70px;
+  transition: all 0.3s linear;
+  z-index: 1;
+}
+
+.active {
+  left: 0;
+}
+.filterTipo {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterTipo span {
+  font-weight: 700;
+  font-size: 22px;
+}
+/* -----Botones abrir y cerrar filtro --- */
+/* ON */
+.boxBtn {
+  display: flex;
+  align-items: center;
+  margin: 20px 20px 20px 20px;
+  gap: 10px;
+}
+.btn {
+   background: none;
+   border: none;
+   cursor: pointer;
+}
+img {
+  width: 30px;
+  height: 30px;
+  stroke: #5555554b;
+  
+}
+/* OFF */
+.btnfilterClose{
+  display: flex;
+  flex-direction: row;
+  gap:5px;
+  margin-bottom: 50px;
+}
+.btnClose{
+   align-items:flex-start;
+   background: none;
+   border: none;
+   cursor: pointer;
+}

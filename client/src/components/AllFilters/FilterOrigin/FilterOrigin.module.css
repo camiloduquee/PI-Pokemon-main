@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 10px 15px 10px;
+  gap: 10px;
+}
+.group {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+.group label {
+  cursor: pointer;
+}

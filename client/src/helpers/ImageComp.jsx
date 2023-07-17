@@ -12,7 +12,7 @@ const ImageComp = ({ imageUrl }) => {
     if (validateImageUrl(imageUrl)) {
       return <img src={imageUrl} alt="Imagen" style={{width: "200px", height: "200px"}}/>;
     } else {
-      return <img src={defaultImageUrl} alt="Imagen por defecto" />;
+      return <img src={defaultImageUrl} alt="Imagen por defecto" style={{width: "200px", height: "200px"}}/>;
     }
   };
 
