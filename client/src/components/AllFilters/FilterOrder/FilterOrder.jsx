@@ -1,31 +1,29 @@
 import style from "./FilterOrder.module.css";
 
-const FilterOrder = ({nombre}) => {
+const FilterOrder = ({ nombre, isCheckedOrden, setIsCheckedOrden }) => {
+  const handleCheckbox = (checkboxName) => {
+    setIsCheckedOrden(checkboxName);
+  }
   return (
     <div>
       <span>{nombre}</span>
 
       <div className={style.container}>
-        <div className={style.group}>
-          <input
-            type="checkbox"
-            name="ascendente"
-            id="ascendente"
-            // onChange={handleCheckbox}
-          />
-          <label htmlFor="ascendente">Ascendente</label>
-        </div>
-        <div className={style.group}>
-          <input
-            type="checkbox"
-            name="descendente"
-            id="descendente"
-            // onChange={handleCheckbox}
-          />
-          <label htmlFor="descendente">Descendente</label>
-        </div>
+        {["Ascendente", "Descendente"].map((value) => {
+          return (
+            <div key={value} className={style.group}>
+              <input
+                id={value}
+                type="checkbox"
+                checked={isCheckedOrden === value}
+                onChange={()=> handleCheckbox(value)}
+              />
+              <label htmlFor={value}>{value}</label>
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 export default FilterOrder;

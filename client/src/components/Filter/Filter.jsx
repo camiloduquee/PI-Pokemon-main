@@ -5,12 +5,42 @@ import {
   FilterOrigin,
   FilterType,
 } from "../AllFilters/index";
+import {
+  filterType,
+  filterOrigen,
+  filterOrden,
+  filterAlfa,
+  filterAttack,
+} from "../../redux/actions";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Filter.module.css";
 import filterLeft from "../../assets/svg/filterLeft.svg";
-const Filter = () => {
-  const [active, setActive] = useState(false);
+import { useDispatch } from "react-redux";
+
+const Filter = ({ active, setActive }) => {
+  const dispatch = useDispatch();
+
+  const [isCheckedType, setIsCheckedType] = useState("All");
+  const [isCheckedOrigin, setIsCheckedOrigin] = useState("API");
+  const [isCheckedOrden, setIsCheckedOrden] = useState("Ascendente");
+  const [isCheckedAlfa, setIsCheckedAlfa] = useState(false);
+  const [isCheckedAttack, setIsCheckedAttack] = useState(false);
+
+  useEffect(() => {
+    dispatch(filterType(isCheckedType));
+    dispatch(filterOrigen(isCheckedOrigin));
+    dispatch(filterOrden(isCheckedOrden));
+    dispatch(filterAlfa(isCheckedAlfa));
+    dispatch(filterAttack(isCheckedAttack));
+  }, [
+    isCheckedType,
+    isCheckedOrigin,
+    isCheckedOrden,
+    isCheckedAlfa,
+    isCheckedAttack
+  ]);
+
   const handleActiveFiltre = () => {
     setActive(true);
   };
@@ -30,11 +60,31 @@ const Filter = () => {
             </button>
             <h5>Cerrar</h5>
           </div>
-          <FilterType nombre="Tipo" />
-          <FilterOrigin nombre="Origen" />
-          <FilterOrder nombre="Orden " />
-          <FilterAlphabet nombre="Orden Alfabético" />
-          <FilterAttack nombre="Orden Ataque" />
+          <FilterType
+            nombre="Tipo"
+            isCheckedType={isCheckedType}
+            setIsCheckedType={setIsCheckedType}
+          />
+          <FilterOrigin
+            nombre="Origen"
+            isCheckedOrigin={isCheckedOrigin}
+            setIsCheckedOrigin={setIsCheckedOrigin}
+          />
+          <FilterOrder
+            nombre="Orden "
+            isCheckedOrden={isCheckedOrden}
+            setIsCheckedOrden={setIsCheckedOrden}
+          />
+          <FilterAlphabet
+            nombre="Orden Alfabético"
+            isCheckedAlfa={isCheckedAlfa}
+            setIsCheckedAlfa={setIsCheckedAlfa}
+          />
+          <FilterAttack
+            nombre="Orden Ataque"
+            isCheckedAttack={isCheckedAttack}
+            setIsCheckedAttack={setIsCheckedAttack}
+          />
         </div>
       </div>
     </>

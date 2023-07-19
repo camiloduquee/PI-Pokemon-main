@@ -1,33 +1,28 @@
 import style from "./FilterOrigin.module.css";
 
-const FilterOrigin = ({ nombre }) => {
+const FilterOrigin = ({ nombre, isCheckedOrigin, setIsCheckedOrigin }) => {
+  const handleCheckbox = (checkboxName) => {
+    setIsCheckedOrigin(checkboxName);
+  };
+
   return (
     <div>
       <span>{nombre}</span>
-
       <div className={style.container}>
-        <div className={style.group}>
-          <input
-            type="checkbox"
-            name="API"
-            id="API"
-            // onChange={handleCheckbox}
-          />
-          <label htmlFor="API">API</label>
-        </div>
-        <div className={style.group}>
-          <input
-            type="checkbox"
-            name="BD"
-            id="BD"
-            // onChange={handleCheckbox}
-          />
-          <label htmlFor="BD">BD</label>
-        </div>
+        {["API", "BD"].map((value) => {
+          return (
+            <div key={value} className={style.group}>
+              <input
+                id={value}
+                type="checkbox"
+                checked={isCheckedOrigin === value}
+                onChange={() => handleCheckbox(value)}
+              />
+              <label htmlFor={value}>{value}</label>
+            </div>
+          );
+        })}
       </div>
-      
-       
-      
     </div>
   );
 };

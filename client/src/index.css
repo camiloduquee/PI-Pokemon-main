@@ -8,3 +8,15 @@ p {
 h4 {
   font-size: clamp(10px, 2vw, 22px);
 }
+@media (max-width: 768px){
+  body {
+    overflow: auto;
+    scrollbar-width: none; /*Firefox*/
+  }
+  
+  /*Webkit*/
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+ 
+}

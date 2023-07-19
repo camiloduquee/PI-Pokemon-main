@@ -43,11 +43,12 @@ const dataPokemons = async (URL, limit, offset) => {
 
   async function main() {
     if (limit || offset) {
-      return fetchData(`${URL}?offset=${offset}&limit=${limit}`);
+      const {results} = await fetchData(`${URL}?offset=${offset}&limit=${limit}`);
+      return results;
     }
 
-    const apiData = await recursiveFetch(`${URL}?offset=${0}&limit=${120}`);
-    return apiData;
+    const {results} = await recursiveFetch(`${URL}?offset=${0}&limit=${120}`);
+    return results;
   }
 
   return main();

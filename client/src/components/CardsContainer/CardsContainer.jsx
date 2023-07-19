@@ -2,11 +2,13 @@ import Card from "../Card/Card";
 import style from "./Cards.module.css";
 import { useSelector } from "react-redux";
 
-const CardsContainer = ({ firstIndex, lastIndex }) => {
-  const { results } = useSelector((state) => state.allPokemons);
+const CardsContainer = ({ firstIndex, lastIndex, active }) => {
+  const allPokemons = useSelector((state) => state.allPokemons);
+  const pokemonsFilter = useSelector((state) => state.pokemonsFilter);
   return (
     <div className={style.containerCards}>
-      {results
+      
+      {(active ? pokemonsFilter:allPokemons)
         ?.map((property) => {
           return (
             <Card

@@ -1,17 +1,23 @@
 import style from "./FilterAlphabet.module.css";
 
-const FilterAlphabet = ({nombre}) => {
+const FilterAlphabet = ({nombre, isCheckedAlfa, setIsCheckedAlfa}) => {
+  const handleCheckbox = (event)=> {
+    if(event.target.checked){
+      setIsCheckedAlfa(true)
+    }else{
+      setIsCheckedAlfa(false)
+    }
+  }
   return (
     <div>
       <span>{nombre}</span>
-
       <div className={style.container}>
         <div className={style.group}>
           <input
+            id="Abc"
             type="checkbox"
-            name="abc"
-            id="abc"
-            // onChange={handleCheckbox}
+            checked={isCheckedAlfa}
+            onChange={handleCheckbox}
           />
           <label htmlFor="abc">Abc</label>
         </div>

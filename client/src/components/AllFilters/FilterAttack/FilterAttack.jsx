@@ -1,6 +1,13 @@
 import style from "./FilterAttack.module.css";
 
-const FilterAttack = ({nombre}) => {
+const FilterAttack = ({nombre, isCheckedAttack, setIsCheckedAttack}) => {
+  const handleCheckbox = (event)=> {
+    if(event.target.checked){
+      setIsCheckedAttack(true)
+    }else{
+      setIsCheckedAttack(false)
+    }
+  }
   return (
     <div>
       <span>{nombre}</span>
@@ -8,10 +15,10 @@ const FilterAttack = ({nombre}) => {
       <div className={style.container}>
         <div className={style.group}>
           <input
-            type="checkbox"
-            name="ataque"
             id="ataque"
-            // onChange={handleCheckbox}
+            type="checkbox"
+            checked={isCheckedAttack}
+            onChange={handleCheckbox}
           />
           <label htmlFor="ataque">Ataque</label>
         </div>

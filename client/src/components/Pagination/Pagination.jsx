@@ -3,12 +3,14 @@ import style from "./Pagination.module.css";
 import backArrow from "../../assets/svg/backArrow.svg";
 import forwardArrow from "../../assets/svg/forwardArrow.svg";
 
-const Pagination = ({ pokemonsPage, currentPage, setCurrentPage }) => {
+const Pagination = ({ pokemonsPage, currentPage, setCurrentPage, active }) => {
   const pageNumbers = [];
   const allPokemons = useSelector((state) => state.allPokemons);
-  if(allPokemons.results)
+  const pokemonsFilter = useSelector((state) => state.pokemonsFilter);
 
-    for (let i = 1; i <= Math.ceil(allPokemons.results?.length / pokemonsPage); i++) {
+  if(allPokemons)
+
+    for (let i = 1; i <= Math.ceil((active ? pokemonsFilter?.length : allPokemons?.length) / pokemonsPage); i++) {
       pageNumbers.push(i);
     }
  
