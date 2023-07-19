@@ -28,11 +28,15 @@ const Home = () => {
       <div className={style.containerTop}>
         <SearchBar />
       </div>
-      <Filter active={active} setActive={setActive}/>
-      
-        {loader && <Loader />}
-        <CardsContainer lastIndex={lastIndex} firstIndex={firstIndex} active={active}/>
-      
+      <Filter active={active} setActive={setActive} />
+
+      {loader && <Loader />}
+      <CardsContainer
+        lastIndex={lastIndex}
+        firstIndex={firstIndex}
+        active={active}
+      />
+
       <div className={style.containerPage}>
         <Pagination
           pokemonsPage={pokemonsPage}

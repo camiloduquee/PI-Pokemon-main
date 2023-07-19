@@ -1,4 +1,3 @@
-import React, { Children } from "react";
 import style from "./Message.module.css";
 
 const Message = ({children, menssage}) => {

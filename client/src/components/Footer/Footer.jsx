@@ -16,7 +16,7 @@ const Footer = () => {
         </Link>
         
       </section>
-      <p>© 2020 Copyright: Héctor Gómez</p>
+      <p>© 2023 Copyright: Héctor Gómez</p>
     </div>
   );
 };

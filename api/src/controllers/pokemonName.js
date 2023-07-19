@@ -27,7 +27,7 @@ const pokemonName = async (name, URL) => {
   });
 
   if (pokemonsDB.length) {
-    return pokemonsDB;
+    return pokemonsDB[0];
   }
   throw new Error("No se encontro ningun pokemon con ese nombre.");
 };
