@@ -1,13 +1,17 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, Imported;
   margin: 0;
 }
 p {
-  font-size: clamp(10px, 2vw, 22px);
+  font-size: clamp(8px, 2vw, 15px);
+}
+h1 {
+  font-size: clamp(24px, 2vw, 40px);
 }
 h4 {
   font-size: clamp(10px, 2vw, 22px);
 }
+
 @media (max-width: 768px){
   body {
     overflow: auto;

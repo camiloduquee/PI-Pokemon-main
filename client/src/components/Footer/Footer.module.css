@@ -4,10 +4,15 @@
   color: white;
   text-align: center;
   padding: 1em;
-  margin-top: auto;
+  margin-top: 1em;
 }
 .icon{
     filter: invert(100%); 
     width: 25px;
-    margin: 5px 10px 0px 0px;   
+    margin: 5px 5px 0px 0px;   
+}
+p{
+  /* margin: 5px 0px 5px 0px; */
+  padding: 5px 0px 5px 0px;
+
 }

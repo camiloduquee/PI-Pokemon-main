@@ -3,6 +3,7 @@ import DetailCard from "../../components/DetailCard/DetailCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
 const Detail = () => {
   const [character, setCharacter] = useState({});
   const { ID } = useParams();
@@ -19,6 +20,7 @@ const Detail = () => {
  
   return (
     <>
+      
       <DetailCard character={character} />
     </>
   );

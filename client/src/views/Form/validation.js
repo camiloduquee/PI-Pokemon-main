@@ -47,15 +47,11 @@ if (pokemonData.Defensa < 1)
         errors.Defensa ="La Defensa debe ser mayor a 1";
     }
 
-if (pokemonData.Defensa < 1)
-    {
-        errors.Defensa ="La Defensa debe ser mayor a 1";
-    }
-    
+
 
 if (pokemonData.Tipo.length === 0 || pokemonData.Tipo.length > 2) 
     {
-        errors.Tipo = "Debes seleccionar una (1) o dos (2) opciones.";
+        errors.Tipo = "Debes seleccionar almenos un (1) o dos (2) opciones en el tipo de pokemón.";
     }
 
 return errors;

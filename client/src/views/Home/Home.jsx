@@ -2,7 +2,7 @@ import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { allPokemons, allTypes } from "../../redux/actions";
 import { Loader } from "../../components/Loader/Loader";
 import style from "./Home.module.css";
@@ -11,9 +11,9 @@ import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const pokemons = useSelector(state => state.allPokemons);
   const [pokemonsPage, setPokemonsPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
-  const [loader, setLoader] = useState(false);
   const lastIndex = currentPage * pokemonsPage;
   const firstIndex = lastIndex - pokemonsPage;
   const [active, setActive] = useState(false);
@@ -21,32 +21,36 @@ const Home = () => {
   useEffect(() => {
     dispatch(allPokemons("http://localhost:3001/pokemons?offset=0&limit=120"));
     dispatch(allTypes("http://localhost:3001/types"));
+      
   }, []);
 
   return (
-    <div className={style.containerHome}>
-      <div className={style.containerTop}>
-        <SearchBar />
-      </div>
-      <Filter active={active} setActive={setActive} />
+    <>
+      <div className={style.containerHome}>
+        <div className={style.containerTop}>
+          <SearchBar />
+        </div>
+        {!pokemons.length && <Loader />}
+        <div>
+          <Filter active={active} setActive={setActive} />
+          <CardsContainer
+            lastIndex={lastIndex}
+            firstIndex={firstIndex}
+            active={active}
+          />
+          <div className={style.containerPage}>
+            <Pagination
+              pokemonsPage={pokemonsPage}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              active={active}
+            />
+          </div>
+        </div>
 
-      {loader && <Loader />}
-      <CardsContainer
-        lastIndex={lastIndex}
-        firstIndex={firstIndex}
-        active={active}
-      />
-
-      <div className={style.containerPage}>
-        <Pagination
-          pokemonsPage={pokemonsPage}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          active={active}
-        />
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 export default Home;
