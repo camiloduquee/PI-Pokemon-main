@@ -47,7 +47,3 @@
     left: calc(50% - 20px);
     z-index: 1;
 }
-.number {
-    text-align: center;
-    z-index: 10;    
-}

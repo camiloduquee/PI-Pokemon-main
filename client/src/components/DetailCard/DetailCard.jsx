@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ImageComp from "../../helpers/ImageComp";
 import TypesName from "../TypesName/TypesName";
-import { Loader } from "../Loader/Loader";
+import Loader from "../Loader/Loader";
 const DetailCard = ({ character }) => {
   const navigate = useNavigate();
   const backToTheHome = () => {

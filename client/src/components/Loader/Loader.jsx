@@ -1,6 +1,6 @@
 import style from "./Loader.module.css";
 
-export const Loader = () => {
+const Loader = () => {
   return (
     <div className={style.box}>
       <div className={style.ldsRing}>
@@ -12,3 +12,4 @@ export const Loader = () => {
     </div>
   );
 };
+export default Loader;

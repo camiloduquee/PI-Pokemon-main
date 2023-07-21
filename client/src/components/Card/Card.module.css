@@ -1,4 +1,112 @@
-  .image {
-   width: 30%;
-   height: 30%;
-  }
+.box {
+  border-radius: 25px;
+  padding: 15px;
+}
+.box h1 {
+  text-align: center;
+}
+.containerTitle {
+  background: rgb(230, 57, 70);
+  background: linear-gradient(
+    0deg,
+    rgba(230, 57, 70, 1) 0%,
+    rgba(231, 94, 95, 1) 10%,
+    rgba(29, 53, 87, 1) 22%,
+    rgba(29, 53, 87, 1) 76%,
+    rgba(29, 53, 87, 1) 100%
+  );
+  border-radius: 15px;
+  margin: 0px 30px 10px 30px;
+  padding: 5px;
+}
+.title {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.circuloOne {
+  background: rgb(168, 218, 220);
+  background: linear-gradient(
+    90deg,
+    rgba(168, 218, 220, 1) 0%,
+    rgba(255, 255, 255, 1) 3%,
+    rgba(168, 218, 220, 1) 6%,
+    rgba(147, 171, 172, 0.3972691127232143) 20%,
+    rgba(255, 255, 255, 0.10035034521621145) 50%,
+    rgba(147, 171, 172, 0.3972691127232143) 80%,
+    rgba(168, 218, 220, 1) 94%,
+    rgba(255, 255, 255, 1) 97%,
+    rgba(168, 218, 220, 1) 100%
+  );
+  height: 100px;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  width: 250px;
+}
+.circuloTwo {
+  position: relative;
+  background: #e63946;
+  height: 100px;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  width: 250px;
+  -webkit-box-shadow: -1px 36px 23px -13px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: -1px 36px 23px -13px rgba(0, 0, 0, 0.46);
+  box-shadow: -1px 36px 23px -13px rgba(0, 0, 0, 0.46);
+}
+.internoCirOne {
+  position: absolute;
+  border: 1px solid rgb(83, 83, 83);
+  left: 100px;
+  background: #fff;
+  height: 25px;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  width: 50px;
+}
+.internoCirTwo {
+  position: absolute;
+  border: 1px solid rgb(83, 83, 83);
+  left: 12px;
+  background: #393939;
+  height: 10px;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  width: 25px;
+}
+.envase {
+  position: relative;
+}
+.effect {
+  position: absolute;
+  height: 202px;
+  width: 250px;
+  background: rgb(168, 218, 220);
+  background: linear-gradient(
+    90deg,
+    rgba(168, 218, 220, 1) 0%,
+    rgba(255, 255, 255, 1) 3%,
+    rgba(168, 218, 220, 1) 6%,
+    rgba(147, 171, 172, 0.3972691127232143) 20%,
+    rgba(255, 255, 255, 0.10035034521621145) 50%,
+    rgba(147, 171, 172, 0.3972691127232143) 80%,
+    rgba(168, 218, 220, 1) 94%,
+    rgba(255, 255, 255, 1) 97%,
+    rgba(168, 218, 220, 1) 100%
+  );
+  -webkit-box-shadow: inset 0px -34px 20px -21px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: inset 0px -34px 20px -21px rgba(0, 0, 0, 0.42);
+  box-shadow: inset 0px -34px 20px -21px rgba(0, 0, 0, 0.42);
+  z-index: 2;
+}
+.fondoImg {
+  display: flex;
+  justify-content: center;
+  /* background: #6ea2baa4; */
+  width: 250px;
+}

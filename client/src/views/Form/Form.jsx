@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "../../components/Modal/Modal";
 import style from "../Form/F.module.css";
 import validation from "./validation";
@@ -9,10 +9,13 @@ import picachuSvg from "../../assets/svg/picachu.svg";
 import groupSvg from "../../assets/svg/group.svg";
 import infoSvg from "../../assets/svg/info.svg";
 import checkSvg from "../../assets/svg/check.svg";
+import { allTypes } from "../../redux/actions";
 
 const Form = () => {
-  const Tipos = useSelector((state) => state.allTypes);
+
   // -------------  Estados ----------
+  const Tipos = useSelector((state) => state.allTypes);
+  const dispatch = useDispatch();
   const [estadoModal, setEstadoModal] = useState(false);
   const [estadoModaError, setEstadoModalError] = useState(false);
   const [stateMenss, setStateMenss] = useState(false);
@@ -20,6 +23,7 @@ const Form = () => {
     Nombre: "",
     Error: "",
   });
+
   const [pokemonData, setPokemonData] = useState({
     Nombre: "",
     Imagen: "",
@@ -42,7 +46,11 @@ const Form = () => {
     Peso: 0,
     Tipo: [],
   });
-
+  //
+  useEffect(() => {
+    dispatch(allTypes("http://localhost:3001/types"));
+      
+  }, []);
   // ----------- Funciones ---------
 
   const handleInputChange = (event) => {
@@ -101,12 +109,16 @@ const Form = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!Object.values(errors).length) {
-      setStateMenss(true);
       const data = await postForm(pokemonData);
-      setMenssage({
-        Nombre: data.Nombre,
-        Error: data.Error,
-      });
+      if (data.Nombre) {
+        setMenssage({
+          Nombre: data.Nombre,
+        });
+      } else {
+        setMenssage({
+          Error: data.Error,
+        });
+      }
       setPokemonData({
         Nombre: "",
         Imagen: "",
@@ -129,16 +141,8 @@ const Form = () => {
         Peso: 0,
         Tipo: [],
       });
-    } else {
-      const data = {
-        Error: "Debes corregir los errores",
-      };
-      setStateMenss(true);
-      setMenssage({
-        Nombre: data.Nombre,
-        Error: data.Error,
-      });
     }
+    setStateMenss(true);
   };
 
   const handleAddTypes = () => {
@@ -149,7 +153,7 @@ const Form = () => {
 
   return (
     <div className={style.container}>
-      <div className={style.picachuPosition}>
+        <div className={style.picachuPosition}>
         <img src={picachuSvg} alt="picachuSvg" />
       </div>
       <div className={style.box}>
@@ -239,6 +243,7 @@ const Form = () => {
                   name="Vida"
                   value={pokemonData.Vida}
                   onChange={handleInputChange}
+                  className={style.range}
                 />
               </div>
               <div className={style.count}>{pokemonData.Vida}</div>
@@ -331,7 +336,7 @@ const Form = () => {
               <div className={style.count}>{pokemonData.Peso}</div>
             </div>
           </div>
-
+          
           <Modal
             state={estadoModal}
             changeStatus={setEstadoModal}
@@ -373,18 +378,14 @@ const Form = () => {
             titulo="Alerta"
           >
             <div className={style.contenido}>
-              {menssage.Error ? (
-                <div>
-                  <p>{menssage.Error}</p>
-                </div>
-              ) : (
-                <div>
+              <div>
+                {menssage.Error && <p>{menssage.Error}</p>}
+                {menssage.Nombre && (
                   <p>
-                    Se ha creado satisfactoreamente tu pokemon con el nombre{" "}
-                    {menssage.Nombre}
+                    {`Se ha creado satisfactoreamente tu pokemon con el nombre ${menssage.Nombre}`}
                   </p>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </Modal>
           <Modal

@@ -1,4 +1,3 @@
-import React from "react";
 import imgDefault from "../assets/img/pokemonDefault.png";
 
 const ImageComp = ({ imageUrl }) => {

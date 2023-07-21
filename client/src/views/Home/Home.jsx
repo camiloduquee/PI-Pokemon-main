@@ -3,8 +3,8 @@ import Pagination from "../../components/Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allPokemons, allTypes } from "../../redux/actions";
-import { Loader } from "../../components/Loader/Loader";
+import { allPokemons } from "../../redux/actions";
+import  Loader  from "../../components/Loader/Loader";
 import style from "./Home.module.css";
 import Filter from "../../components/Filter/Filter";
 import Footer from "../../components/Footer/Footer";
@@ -20,8 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(allPokemons("http://localhost:3001/pokemons?offset=0&limit=120"));
-    dispatch(allTypes("http://localhost:3001/types"));
-      
+          
   }, []);
 
   return (
@@ -31,8 +30,9 @@ const Home = () => {
           <SearchBar />
         </div>
         {!pokemons.length && <Loader />}
-        <div>
+        <div className={style.fondo}>
           <Filter active={active} setActive={setActive} />
+          
           <CardsContainer
             lastIndex={lastIndex}
             firstIndex={firstIndex}
@@ -46,6 +46,9 @@ const Home = () => {
               active={active}
             />
           </div>
+
+          
+         
         </div>
 
         <Footer />

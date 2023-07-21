@@ -5,12 +5,32 @@ import TypesName from "../TypesName/TypesName";
 
 const Card = (props) => {
   return (
-    <div className={style.grid}>
-      <ImageComp className={style.image} imageUrl={props.Imagen} />
+    <div className={style.box}>
+      <div className={style.containerTitle}>
+        <Link to={`/detail/${props.ID}`} className={style.title}>
+          <h1>{props.Nombre}</h1>
+        </Link>
+      </div>
+      <div className={style.container}>
+        <div className={style.circuloOne}></div>
+        <div className={style.envase}>
+          <div className={style.effect}></div>
+          <div className={style.fondoImg}>
+            <ImageComp className={style.image} imageUrl={props.Imagen} />
+          </div>
+        </div>
+        <div className={style.circuloTwo}>
+          <div className={style.internoCirOne}>
+            <div className={style.internoCirTwo}></div>
+          </div>
+        </div>
+      </div>
+
+      {/* 
       <Link to={`/detail/${props.ID}`}>
         <h1>{props.Nombre}</h1>
       </Link>
-      <TypesName Tipos={props.Tipos} />
+      <TypesName Tipos={props.Tipos} /> */}
     </div>
   );
 };
