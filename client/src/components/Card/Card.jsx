@@ -23,14 +23,11 @@ const Card = (props) => {
           <div className={style.internoCirOne}>
             <div className={style.internoCirTwo}></div>
           </div>
+          <div>
+            <TypesName Tipos={props.Tipos} />
+          </div>
         </div>
       </div>
-
-      {/* 
-      <Link to={`/detail/${props.ID}`}>
-        <h1>{props.Nombre}</h1>
-      </Link>
-      <TypesName Tipos={props.Tipos} /> */}
     </div>
   );
 };

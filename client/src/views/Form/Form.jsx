@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { BoxTipos } from "./styledbutton";
 import Modal from "../../components/Modal/Modal";
 import style from "../Form/F.module.css";
 import validation from "./validation";
@@ -9,13 +10,10 @@ import picachuSvg from "../../assets/svg/picachu.svg";
 import groupSvg from "../../assets/svg/group.svg";
 import infoSvg from "../../assets/svg/info.svg";
 import checkSvg from "../../assets/svg/check.svg";
-import { allTypes } from "../../redux/actions";
 
 const Form = () => {
-
   // -------------  Estados ----------
   const Tipos = useSelector((state) => state.allTypes);
-  const dispatch = useDispatch();
   const [estadoModal, setEstadoModal] = useState(false);
   const [estadoModaError, setEstadoModalError] = useState(false);
   const [stateMenss, setStateMenss] = useState(false);
@@ -47,10 +45,7 @@ const Form = () => {
     Tipo: [],
   });
   //
-  useEffect(() => {
-    dispatch(allTypes("http://localhost:3001/types"));
-      
-  }, []);
+
   // ----------- Funciones ---------
 
   const handleInputChange = (event) => {
@@ -78,7 +73,7 @@ const Form = () => {
   };
   function handleChange(event) {
     const checked = event.target.checked;
-    const value = Number(event.target.value);
+    const value = event.target.value;
     const property = event.target.name;
 
     if (checked) {
@@ -153,7 +148,7 @@ const Form = () => {
 
   return (
     <div className={style.container}>
-        <div className={style.picachuPosition}>
+      <div className={style.picachuPosition}>
         <img src={picachuSvg} alt="picachuSvg" />
       </div>
       <div className={style.box}>
@@ -189,6 +184,8 @@ const Form = () => {
             </div>
 
             <div className={style.containertipos}>
+              {/*           boton para ver los tipos de pokemon seleccion                          */}
+
               <button
                 className={style.button}
                 type="button"
@@ -208,24 +205,24 @@ const Form = () => {
               {pokemonData.Tipo.length === 0 && (
                 <div className={style.tipos}>Selecciona su tipo</div>
               )}
+{/*          renderizado de los tipos de pokemon con su color respectivo       */}
               {!estadoModal && (
                 <div
                   className={
                     pokemonData.Tipo.length === 1 ? style.containertipos : ""
                   }
                 >
-                  {Tipos.map((Element) => {
-                    const result = pokemonData.Tipo.includes(Element.ID);
+                  {pokemonData.Tipo.map((value, index) => {
+                    console.log(value);
                     return (
-                      result && (
-                        <div key={Element.ID} className={style.containerBox}>
-                          {Element.Nombre}
-                        </div>
-                      )
+                      <BoxTipos key={index} type={value}>
+                        {value}
+                      </BoxTipos>
                     );
                   })}
                 </div>
               )}
+
             </div>
           </div>
 
@@ -336,7 +333,7 @@ const Form = () => {
               <div className={style.count}>{pokemonData.Peso}</div>
             </div>
           </div>
-          
+
           <Modal
             state={estadoModal}
             changeStatus={setEstadoModal}
@@ -350,7 +347,7 @@ const Form = () => {
                   <div key={tipo.ID}>
                     <input
                       name="Tipo"
-                      value={tipo.ID}
+                      value={tipo.Nombre}
                       type="checkbox"
                       onChange={handleChange}
                     />

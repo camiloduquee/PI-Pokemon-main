@@ -3,7 +3,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allPokemons } from "../../redux/actions";
+import { allPokemons, allTypes } from "../../redux/actions";
 import  Loader  from "../../components/Loader/Loader";
 import style from "./Home.module.css";
 import Filter from "../../components/Filter/Filter";
@@ -20,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(allPokemons("http://localhost:3001/pokemons?offset=0&limit=120"));
-          
+    dispatch(allTypes("http://localhost:3001/types"));      
   }, []);
 
   return (

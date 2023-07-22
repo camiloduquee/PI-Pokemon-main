@@ -1,14 +1,19 @@
-import React from "react";
+import { BoxTipos, Container, Text } from "./styles";
 
-function ListItem(props) {
-  return <li>{props.value}</li>;
-}
 function TypesName(props) {
-  const tipos = props.Tipos;
-  const listItems = tipos?.map(tipo => (
-    <ListItem key={tipo.Nombre.toString()} value={tipo.Nombre} />
-  ));
-  return <ul>{listItems}</ul>;
+  const number = props.Tipos.length;
+   return (
+    <Container>
+      {props.Tipos?.map((type, index) => {
+        
+        return (
+          <BoxTipos key={index} type={type.Nombre} $number={number}>
+            <Text>{type.Nombre}</Text>
+          </BoxTipos>
+        );
+      })}
+    </Container>
+  );
 }
 
 export default TypesName;
