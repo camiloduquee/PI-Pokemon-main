@@ -3,8 +3,19 @@
   justify-content: center;
   min-height: 100vh;
   width: 100%;
+  background: rgb(168, 218, 220);
+  background: linear-gradient(
+    45deg,
+    #e63946 0%,
+    #e63946 30%,
+    #9bcc50 30%,
+    #9bcc50 50%,
+    #7e0058 50%,
+    #7e0058 70%,
+    #e63946 70%,
+    #e63946 100%
+  );
 }
-
 .box {
   width: 100%;
 }
@@ -133,10 +144,37 @@ segundo */
   justify-content: center;
   width: 50%;
 }
+.rayoBox {
+  position: relative;
+}
+.rayoLeft {
+  position: absolute;
+  top: -100px;
+  left: -170px;
+  width: 200px;
+  height: 200px;
+  background-image: url("../../assets/img/rayoLeft.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  animation: rayo 2s infinite;
+}
+.rayoRigth {
+  position: absolute;
+  top: -100px;
+  left: 90px;
+  width: 200px;
+  height: 200px;
+  background-image: url("../../assets/img/rayoRight.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  animation: rayo 2s infinite;
+}
 .effect {
   position: absolute;
   height: 250px;
-  width: 500px;
+  width: 470px;
   background: linear-gradient(
     180deg,
     rgba(168, 218, 220, 1) 0%,
@@ -207,7 +245,12 @@ segundo */
   height: 500px;
   width: 550px;
   border-radius: 10px;
-  border: 2px solid rgb(60, 60, 60);
+  border: 3px solid rgb(60, 60, 60);
+  padding: 10px;
+
+  -webkit-box-shadow: 0px 5px 5px 5px rgba(64, 64, 64, 0.26);
+  -moz-box-shadow: 0px 5px 5px 5px rgba(64, 64, 64, 0.26);
+  box-shadow: 0px 5px 5px 5px rgba(64, 64, 64, 0.26);
 }
 .containerInterno {
   display: flex;
@@ -218,7 +261,7 @@ segundo */
   width: 90%;
   border-radius: 10px;
   border: 2px solid rgb(60, 60, 60);
-  padding: 10px;
+  padding: 5px;
   z-index: 2;
 }
 /* statf de pokemon  */
@@ -267,7 +310,7 @@ segundo */
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80%;
+  height: 70%;
   border: 2px solid rgb(61, 61, 61);
   margin: 10px;
   border-radius: 5px;
@@ -397,4 +440,35 @@ segundo */
     height: 550px;
     margin-bottom: 40px;
   }
+  .rayoLeft {
+    top: -80px;
+    left: -90px;
+    width: 100px;
+    height: 150px;
+  }
+  .rayoRigth {
+    top: -80px;
+    left: 90px;
+    width: 100px;
+    height: 150px;
+  }
 }
+@keyframes rayo {
+  0% {
+    opacity: 1;
+    
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+    filter: brightness(1.75);
+  }
+  100% {
+    opacity: 0;
+    
+  }
+}
+
+

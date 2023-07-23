@@ -8,7 +8,7 @@ import { ProgressBar } from "./StyledBarra";
 import { useState } from "react";
 
 const DetailCard = ({ character }) => {
-  const [buttonId, setButtonId] = useState(false);
+  const [buttonId, setButtonId] = useState(true);
   const navigate = useNavigate();
   const backToTheHome = () => {
     navigate("/home");
@@ -36,6 +36,11 @@ const DetailCard = ({ character }) => {
               </div>
 
               <div className={style.envase}>
+                <div className={style.rayoBox}>
+                  <div className={style.rayoLeft}></div>
+                  <div className={style.rayoRigth}></div>
+                </div>
+
                 <div className={style.effect}></div>
 
                 <ImageComp imageUrl={character.Imagen} min={true} />
