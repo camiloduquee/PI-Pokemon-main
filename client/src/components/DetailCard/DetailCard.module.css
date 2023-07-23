@@ -158,7 +158,7 @@ segundo */
   background-size: cover;
   background-position: center center;
   animation: rayo 2s infinite;
-}
+ }
 .rayoRigth {
   position: absolute;
   top: -100px;
