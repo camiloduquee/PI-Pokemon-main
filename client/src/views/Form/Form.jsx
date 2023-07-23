@@ -100,9 +100,17 @@ const Form = () => {
       );
     }
   }
+  const tipofilter = () => {
+    const idsFiltrados = pokemonData.Tipo.map((tipo) => {
+      const objetoEncontrado = Tipos.find((objeto) => objeto.Nombre === tipo);
+      return objetoEncontrado ? objetoEncontrado.ID : null;
+    });
+    pokemonData.Tipo = idsFiltrados;
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    tipofilter();
     if (!Object.values(errors).length) {
       const data = await postForm(pokemonData);
       if (data.Nombre) {
@@ -205,7 +213,7 @@ const Form = () => {
               {pokemonData.Tipo.length === 0 && (
                 <div className={style.tipos}>Selecciona su tipo</div>
               )}
-{/*          renderizado de los tipos de pokemon con su color respectivo       */}
+              {/*          renderizado de los tipos de pokemon con su color respectivo       */}
 
               {!estadoModal && (
                 <div
@@ -213,7 +221,8 @@ const Form = () => {
                     pokemonData.Tipo.length === 1 ? style.containertipos : ""
                   }
                 >
-                  {pokemonData.Tipo.map((value, index) => {                    return (
+                  {pokemonData.Tipo.map((value, index) => {
+                    return (
                       <BoxTipos key={index} type={value}>
                         {value}
                       </BoxTipos>
@@ -221,7 +230,6 @@ const Form = () => {
                   })}
                 </div>
               )}
-
             </div>
           </div>
 

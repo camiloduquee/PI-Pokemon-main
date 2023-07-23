@@ -1,10 +1,10 @@
 .animateImg {
-    width: 100px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     box-sizing: border-box;
-    background-color: #A8DADC;
-    border: 5px rgba(255, 255, 255, 0) solid;
-    border-radius: 50%;
+    background-color: #a8dadc00;
+    border: 5px rgba(7, 6, 6, 0) solid;
+    border-radius: 35%;
     overflow: hidden;
     box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.652);
     transform: translatey(0px);

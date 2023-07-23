@@ -29,10 +29,10 @@
   margin: 80px 10px 80px 10px;
 }
 .boxTitle {
-  width: 200px;
+  width: 300px;
   border-radius: 10px;
-
   background: #457b9d;
+ 
 }
 .title {
   color: #fff;
@@ -234,7 +234,7 @@ segundo */
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 300px;
+  height: 400px;
   margin: 70px 0px 20px 0px;
 }
 .containerInfo {
@@ -288,11 +288,12 @@ segundo */
   justify-content: center;
   align-items: center;
   flex-direction: column;
+ 
 }
 .typeF {
   position: relative;
   text-align: center;
-  padding: 20px;
+  
 }
 .tipoPokemon {
   margin: 10px;
@@ -310,9 +311,9 @@ segundo */
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70%;
+  height: 90%;
   border: 2px solid rgb(61, 61, 61);
-  margin: 10px;
+  margin: 5px;
   border-radius: 5px;
 
   background: linear-gradient(
@@ -407,6 +408,7 @@ segundo */
   .containerInfo {
     background: #e63946;
     width: 300px;
+    position: relative;
   }
   .statGroupType {
     display: flex;

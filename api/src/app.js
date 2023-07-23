@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const timeout = require('connect-timeout');
 
 require('./db.js');
 
@@ -21,8 +22,19 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
-
+server.use(timeout('60s'));
 server.use('/', routes);
+
+//time tiempo de espera por respues
+
+server.use((req, res, next) => {
+  if (!req.timedout) {
+    next();
+  } else {
+    // Si se agotó el tiempo de espera, enviar una respuesta adecuada
+    res.status(408).send('Request Timeout');
+  }
+});
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars

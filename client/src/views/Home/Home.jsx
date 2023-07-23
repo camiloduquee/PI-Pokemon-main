@@ -12,6 +12,9 @@ import Footer from "../../components/Footer/Footer";
 const Home = () => {
   const dispatch = useDispatch();
   const pokemons = useSelector(state => state.allPokemons);
+  
+  
+  
   const [pokemonsPage, setPokemonsPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
   const lastIndex = currentPage * pokemonsPage;
@@ -19,9 +22,14 @@ const Home = () => {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    dispatch(allPokemons("http://localhost:3001/pokemons?offset=0&limit=120"));
+    dispatch(allPokemons("http://localhost:3001/pokemons"));
     dispatch(allTypes("http://localhost:3001/types"));      
   }, []);
+
+  // useEffect(() => {
+  //   dispatch(allPokemons("http://localhost:3001/pokemons?offset=100000&limit=0"));
+        
+  // }, []);
 
   return (
     <>

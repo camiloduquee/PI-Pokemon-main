@@ -13,11 +13,12 @@ const Modal = ({ children, state, changeStatus, setPokemonData, pokemonData,titu
             <button
               className={style.button}
               onClick={() => {
-                changeStatus(false);
                 setPokemonData({
                   ...pokemonData,
-                  Tipos:[],
+                  Tipo:[],
                 });
+                changeStatus(false);
+                
               }}
             >
               <svg
