@@ -1,6 +1,6 @@
 import style from "./Card.module.css";
 import { Link } from "react-router-dom";
-import ImageComp from "../../helpers/ImageComp";
+import ImageComp from "../../helpers/ImgComparador/ImageComp";
 import TypesName from "../TypesName/TypesName";
 
 const Card = (props) => {

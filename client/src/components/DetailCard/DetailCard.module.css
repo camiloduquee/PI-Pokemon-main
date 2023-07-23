@@ -1,0 +1,400 @@
+.contanerDetail {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.box {
+  width: 100%;
+}
+.box h1 {
+  text-align: center;
+}
+.containerTitle {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 80px 10px 80px 10px;
+}
+.boxTitle {
+  width: 200px;
+  border-radius: 10px;
+
+  background: #457b9d;
+}
+.title {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ------------ id boton ---------- */
+.id {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.boxNombre {
+  background: #457b9d;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+.boxId {
+  margin-top: 10px;
+}
+.circuloOne {
+  position: relative;
+  left: -150px;
+  transform: rotate(-90deg);
+  background: #e63946;
+  height: 100px;
+
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  width: 250px;
+  -webkit-box-shadow: -1px -36px 23px -13px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: -1px -36px 23px -13px rgba(0, 0, 0, 0.46);
+  box-shadow: -1px -36px 23px -13px rgba(0, 0, 0, 0.46);
+  z-index: 2;
+  border: 1px solid rgb(60, 60, 60);
+}
+.circuloTwo {
+  position: relative;
+  left: 150px;
+  transform: rotate(-90deg);
+  background: #e63946;
+  height: 100px;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  width: 250px;
+  -webkit-box-shadow: -1px 36px 23px -13px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: -1px 36px 23px -13px rgba(0, 0, 0, 0.46);
+  box-shadow: -1px 36px 23px -13px rgba(0, 0, 0, 0.46);
+  z-index: 2;
+  border: 1px solid rgb(60, 60, 60);
+}
+.internoCirOne {
+  position: absolute;
+  border: 1px solid rgb(83, 83, 83);
+  left: 100px;
+  background: #fff;
+  height: 25px;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  width: 50px;
+}
+.internoCirTwo {
+  position: absolute;
+  border: 1px solid rgb(83, 83, 83);
+  left: 12px;
+  background: #393939;
+  height: 10px;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  width: 25px;
+}
+/* 
+segundo */
+.internoOneCirOne {
+  position: absolute;
+  border: 1px solid rgb(83, 83, 83);
+  left: 100px;
+  top: 72px;
+  background: #fff;
+  height: 25px;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  width: 50px;
+}
+.internoOneCirTwo {
+  position: absolute;
+  border: 1px solid rgb(83, 83, 83);
+  left: 12px;
+  top: 15px;
+  background: #393939;
+  height: 10px;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  width: 25px;
+}
+.envase {
+  display: flex;
+  position: absolute;
+  /* width: 100%; */
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.effect {
+  position: absolute;
+  height: 250px;
+  width: 500px;
+  background: linear-gradient(
+    180deg,
+    rgba(168, 218, 220, 1) 0%,
+    rgba(255, 255, 255, 1) 3%,
+    rgba(168, 218, 220, 1) 6%,
+    rgba(147, 171, 172, 0.3972691127232143) 20%,
+    rgba(255, 255, 255, 0.10035034521621145) 50%,
+    rgba(147, 171, 172, 0.3972691127232143) 80%,
+    rgba(168, 218, 220, 1) 94%,
+    rgba(255, 255, 255, 1) 97%,
+    rgba(168, 218, 220, 1) 100%
+  );
+  overflow: hidden;
+}
+/* --------  unio ----- */
+.union {
+  position: relative;
+  width: 450px;
+  height: 40px;
+  background-color: #e63946;
+  border-radius: 10px;
+  border: 2px solid rgb(60, 60, 60);
+}
+.vLineLeftOne {
+  position: absolute;
+  border-left: thick solid #000;
+  height: 100%;
+  left: 15%;
+  border: 1px solid rgb(60, 60, 60);
+}
+.vLineLeftTwo {
+  position: absolute;
+  border-left: thick solid #000;
+  height: 100%;
+  left: 20%;
+  border: 1px solid rgb(60, 60, 60);
+}
+.vLineRighOne {
+  position: absolute;
+  border-left: thick solid #000;
+  height: 100%;
+  left: 85%;
+  border: 1px solid rgb(60, 60, 60);
+}
+.vLineRighTwo {
+  position: absolute;
+  border-left: thick solid #000;
+  height: 100%;
+  left: 80%;
+  border: 1px solid rgb(60, 60, 60);
+}
+/* style info */
+
+.boxInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  margin: 70px 0px 20px 0px;
+}
+.containerInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e63946;
+  height: 500px;
+  width: 550px;
+  border-radius: 10px;
+  border: 2px solid rgb(60, 60, 60);
+}
+.containerInterno {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f1faee;
+  height: 80%;
+  width: 90%;
+  border-radius: 10px;
+  border: 2px solid rgb(60, 60, 60);
+  padding: 10px;
+  z-index: 2;
+}
+/* statf de pokemon  */
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.statGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.statGroup span {
+  flex: 20%;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.statGroupType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.typeF {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+.tipoPokemon {
+  margin: 10px;
+}
+.typeF span {
+  color: #f1faee;
+  font-weight: 500;
+  font-size: 18px;
+}
+.type {
+  margin-bottom: 20px;
+}
+.typeF {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  border: 2px solid rgb(61, 61, 61);
+  margin: 10px;
+  border-radius: 5px;
+
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 23%,
+    rgba(57, 57, 57, 1) 24%,
+    rgba(57, 57, 57, 1) 83%,
+    rgba(0, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.buttonBox {
+  margin: 10px;
+}
+.button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  background: #457b9d;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease all;
+  font-size: 18px;
+  font-weight: 700;
+  &:hover {
+    background: #1d3557;
+  }
+}
+.buttonId {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  background: #457b9d;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease all;
+  font-size: 14px;
+  font-weight: 700;
+  &:hover {
+    background: #1d3557;
+  }
+}
+@media (max-width: 768px) {
+  .circuloOne {
+    left: -55px;
+    height: 50px;
+    width: 310px;
+  }
+  .circuloTwo {
+    left: 55px;
+    height: 50px;
+    width: 310px;
+  }
+  .effect {
+    height: 190px;
+    width: 255px;
+  }
+
+  .internoCirOne {
+    left: 70px;
+    height: 25px;
+    width: 50px;
+  }
+  .internoCirTwo {
+    left: 12px;
+    height: 10px;
+    width: 25px;
+  }
+
+  /* segundo circle */
+
+  .internoOneCirOne {
+    left: 70px;
+    top: 24px;
+    height: 25px;
+    width: 50px;
+  }
+  .internoOneCirTwo {
+    left: 12px;
+    height: 10px;
+    width: 25px;
+  }
+  .union {
+    width: 260px;
+    height: 20px;
+  }
+  .containerInfo {
+    background: #e63946;
+    width: 300px;
+  }
+  .statGroupType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .statGroupType span {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .containerInfo {
+    flex-direction: column;
+  }
+  .typeF {
+    background-color: #393939;
+    width: 100%;
+    height: 80%;
+    border: 2px solid rgb(61, 61, 61);
+    margin: 10px;
+    border-radius: 5px;
+    padding: 0px;
+  }
+  .typeF {
+    height: 80%;
+  }
+  .statGroupType {
+    padding: 40px;
+  }
+  .boxInfo {
+    height: 550px;
+    margin-bottom: 40px;
+  }
+}

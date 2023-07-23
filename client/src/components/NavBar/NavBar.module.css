@@ -76,3 +76,7 @@
     transform: rotate(-45deg) translate(-5px, 1px);
   }
 }
+.logo{
+  width: 180px;
+  height: auto;
+}

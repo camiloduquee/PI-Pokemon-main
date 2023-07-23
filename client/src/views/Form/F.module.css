@@ -332,10 +332,6 @@ button[disabled] {
   .gridOne{
     margin: 0px 15px 0px 15px
   }
-  .containerBox{
-    padding: 10px;
-    margin-left: 20px;
-  }
   .gridOne input {
   width: 80%;
   }

@@ -20,7 +20,6 @@ const Detail = () => {
  
   return (
     <>
-      
       <DetailCard character={character} />
     </>
   );

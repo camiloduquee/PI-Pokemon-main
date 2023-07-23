@@ -51,5 +51,13 @@ const colorsTipos = {
   shadow: "#7b62a3",
 };
 
+const statt = {
+  Hp: "#E63946",
+  Atk: "#1D3557",
+  Def: "#9bcc50",
+  V: "#A8DADC",
+  A: "#ff7402",
+  P: "#a4acaf",
+};
 
-export { endpoint, l_gitHub, l_linkedin, TraductorTipos, colorsTipos };
+export { endpoint, l_gitHub, l_linkedin, TraductorTipos, colorsTipos, statt };

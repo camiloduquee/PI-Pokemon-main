@@ -206,15 +206,14 @@ const Form = () => {
                 <div className={style.tipos}>Selecciona su tipo</div>
               )}
 {/*          renderizado de los tipos de pokemon con su color respectivo       */}
+
               {!estadoModal && (
                 <div
                   className={
                     pokemonData.Tipo.length === 1 ? style.containertipos : ""
                   }
                 >
-                  {pokemonData.Tipo.map((value, index) => {
-                    console.log(value);
-                    return (
+                  {pokemonData.Tipo.map((value, index) => {                    return (
                       <BoxTipos key={index} type={value}>
                         {value}
                       </BoxTipos>
