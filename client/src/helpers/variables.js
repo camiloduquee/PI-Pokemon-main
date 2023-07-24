@@ -1,12 +1,11 @@
 // ----------- rutas ----------
 import axios from "axios";
 
-const urlServer = "https://rickandmorty-production-c18e.up.railway.app/";
-
+ 
 const endpoint = "http://localhost:3001";
 const l_gitHub = "#";
 const l_linkedin = "#";
-// axios.defaults.baseURL = `${urlServer}`;
+// axios.defaults.baseURL = `${endpoint}`;
 // ------------Traductor --------------
 
 const TraductorTipos = [
