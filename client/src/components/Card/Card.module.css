@@ -5,21 +5,30 @@
 .box h1 {
   text-align: center;
 }
-.containerTitle {
-  background: rgb(230, 57, 70);
-  background: linear-gradient(
-    0deg,
-    rgba(230, 57, 70, 1) 0%,
-    rgba(231, 94, 95, 1) 10%,
-    rgba(29, 53, 87, 1) 22%,
-    rgba(29, 53, 87, 1) 76%,
-    rgba(29, 53, 87, 1) 100%
-  );
-  border-radius: 15px;
-  margin: 0px 30px 10px 30px;
-  padding: 5px;
+.containerTitle { 
+  display: flex;
+  justify-content: center;
+  
 }
+.nameButton{
+  width: 150px;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  background: #1d3557;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease all;
+  margin-bottom: 20px;
+  &:hover {
+    background: #457B9D;
+    
+  }
+}
+
+
 .title {
+  text-align: center;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;

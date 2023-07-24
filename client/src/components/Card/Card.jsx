@@ -7,9 +7,11 @@ const Card = (props) => {
   return (
     <div className={style.box}>
       <div className={style.containerTitle}>
-        <Link to={`/detail/${props.ID}`} className={style.title}>
-          <h1>{props.Nombre}</h1>
-        </Link>
+        <div className={style.nameButton}>
+          <Link to={`/detail/${props.ID}`} className={style.title}>
+            <h3>{props.Nombre}</h3>
+          </Link>
+        </div>
       </div>
       <div className={style.container}>
         <div className={style.circuloOne}></div>
