@@ -47,10 +47,10 @@ const Filter = ({ active, setActive }) => {
   return (
     <>
       <div className={style.boxBtn}>
-        <button className={style.btn} onClick={handleActiveFiltre}>
-          <img src={filterLeft} alt="Filter" />
+        <button className={style.btnTwo} onClick={handleActiveFiltre}>
+          <img src={filterLeft} alt="Filter" className={style.imgFilter} />
         </button>
-        <span>Filter</span>
+        <div className={style.filterB}>Filter</div>
       </div>
       <div className={`${style.containerFilter} ${active ? style.active : ""}`}>
         <div className={style.filterTipo}>

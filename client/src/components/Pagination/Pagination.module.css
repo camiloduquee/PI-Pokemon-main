@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   gap: 20px;
+  color: #fff;
 }
 .li {
   display: flex;
@@ -26,21 +27,23 @@
   width: 40px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #1d3557;
+  border: 1px solid #1D3557;
+  color: #fff;
+  background-color: #1D3557;
 }
 .li:hover {
-  background-color: #1d3557;
+  background-color: #E63946;
   color: #fff;
 }
 .active {
-  background-color: #1d3557;
+  background-color: #E63946;
   color: #fff;
 }
 .button:disabled,
 button[disabled] {
   border: 1px solid #999999;
   background-color: darkgray;
-  color: #fff;
+  color: #1d3557;
   padding: 10px;
   cursor: not-allowed;
 }
@@ -56,10 +59,10 @@ button[disabled] {
   justify-content: center;
 }
 .btn:hover {
-  background-color: #1d3557;
+  background-color: #E63946;
 }
 .btnActive {
-  background-color: #1d3557;
+  background-color: #E63946;
   color: #fff;
 }
 @media (max-width: 768px) {

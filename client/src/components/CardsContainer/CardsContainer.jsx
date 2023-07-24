@@ -6,7 +6,7 @@ const CardsContainer = ({ firstIndex, lastIndex, active }) => {
   const allPokemons = useSelector((state) => state.allPokemons);
   const pokemonsFilter = useSelector((state) => state.pokemonsFilter);
   return (
-    <div className={style.containerCards}>
+    <div className={active ? style.containerCardsFiler : style.containerCards}>
       
       {(active ? pokemonsFilter:allPokemons)
         ?.map((property) => {

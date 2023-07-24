@@ -12,6 +12,7 @@
   flex-direction: column;
   padding-top: 10vh;
   padding-bottom: 10vh;
+  background-color: #E63946;
   -webkit-box-shadow: 14px 11px 13px -12px rgba(18, 18, 18, 0.69);
   -moz-box-shadow: 14px 11px 13px -12px rgba(18, 18, 18, 0.69);
   box-shadow: 14px 11px 13px -12px rgba(18, 18, 18, 0.69);
@@ -20,9 +21,9 @@
   padding: 5vh;
 }
 .fondo{
-  /* background-image: url("../../assets/img/fondoHome.jpg");
+  background-image: url("../../assets/img/fondoHome.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: center center; */
+  background-position: center center;
 }

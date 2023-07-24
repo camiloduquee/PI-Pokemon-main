@@ -33,36 +33,65 @@
 .boxBtn {
   display: flex;
   align-items: center;
-  margin: 20px 20px 20px 20px;
+  margin: 5px 20px 20px 20px;
   gap: 10px;
+  border-radius: 10px;
+  background: #1D3557;
+  padding: 10px;
 }
 .btn {
-   background: none;
-   border: none;
-   cursor: pointer;
-}
-img {
-  width: 30px;
-  height: 30px;
-  stroke: #5555554b;
+  background: none;
+  border: none;
+  cursor: pointer;
   
 }
+.btnTwo{
+  
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  background-color: #1D3557;
+  
+  &:hover {
+    background: #0096c7;
+  }
+}
+.imgFilter{
+  filter: invert(100%);
+}
+.filterB {
+  color: #fff;
+  font-weight: 700;
+}
+
 /* OFF */
-.btnfilterClose{
+.btnfilterClose {
   display: flex;
   flex-direction: row;
-  gap:5px;
+  gap: 5px;
   margin-bottom: 50px;
+  
 }
-.btnClose{
-   align-items:flex-start;
-   background: none;
-   border: none;
-   cursor: pointer;
+.btnClose {
+  align-items: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  
+  
+  &:hover {
+    background: #ce6245;
+    filter: invert(100%);
+  }
 }
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .containerFilter {
     width: 100%;
   }
- 
 }
