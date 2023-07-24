@@ -9,7 +9,7 @@ const FilterOrder = ({ nombre, isCheckedOrden, setIsCheckedOrden }) => {
       <span>{nombre}</span>
 
       <div className={style.container}>
-        {["Ascendente", "Descendente"].map((value) => {
+        {["Ascendant", "Descending"].map((value) => {
           return (
             <div key={value} className={style.group}>
               <input

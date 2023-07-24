@@ -136,7 +136,7 @@ const DetailCard = ({ character }) => {
                   {buttonId ? (
                     <div className={style.statGroupType}>
                       <div className={style.tipoPokemon}>
-                        <span>Tipo de Pokemón</span>
+                        <span>Type of Pokemon</span>
                       </div>
                       <div className={style.type}>
                         <TypesName Tipos={character.Types} />
@@ -161,7 +161,7 @@ const DetailCard = ({ character }) => {
                       onClick={() => setButtonId(!buttonId)}
                       title="pokemón id"
                     >
-                      {buttonId ? "Id" : "Tipo"}
+                      {buttonId ? "Id" : "Type"}
                     </button>
                   </div>
                 </div>

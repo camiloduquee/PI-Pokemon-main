@@ -1,6 +1,6 @@
 import style from "./FilterType.module.css";
 import { useSelector } from "react-redux";
-import { TraductorTipos } from "../../../helpers/variables";
+
 
 const FilterType = ({ nombre, isCheckedType, setIsCheckedType }) => {
   const Tipos = useSelector((state) => state.allTypes);
@@ -35,7 +35,7 @@ const FilterType = ({ nombre, isCheckedType, setIsCheckedType }) => {
                 checked={isCheckedType === tipo.Nombre}
                 onChange={() => handleCheckbox(tipo.Nombre)}
               />
-              <label htmlFor={tipo.Nombre}>{TraductorTipos[index]}</label>
+              <label htmlFor={tipo.Nombre}>{tipo.Nombre}</label>
             </div>
           );
         })}

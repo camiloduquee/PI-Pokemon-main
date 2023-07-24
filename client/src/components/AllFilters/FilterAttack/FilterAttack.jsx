@@ -20,7 +20,7 @@ const FilterAttack = ({nombre, isCheckedAttack, setIsCheckedAttack}) => {
             checked={isCheckedAttack}
             onChange={handleCheckbox}
           />
-          <label htmlFor="ataque">Ataque</label>
+          <label htmlFor="ataque">Atk</label>
         </div>
         
       </div>

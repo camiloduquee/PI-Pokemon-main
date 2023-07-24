@@ -19,7 +19,7 @@ const FilterAlphabet = ({nombre, isCheckedAlfa, setIsCheckedAlfa}) => {
             checked={isCheckedAlfa}
             onChange={handleCheckbox}
           />
-          <label htmlFor="abc">Abc</label>
+          <label htmlFor="ABC">Abc</label>
         </div>
         
       </div>

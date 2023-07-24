@@ -29,6 +29,6 @@ const pokemonsById = async (idPokemon, URL) => {
   if (pokemonsDB.length) {
       return pokemonsDB[0];
   }
-  throw new Error("No se encontro ningun pokemon con ese id.");
+  throw new Error("No pokemon with that id were found.");
 };
 module.exports = pokemonsById;

@@ -12,16 +12,16 @@ const initialState = {
   allTypes: [],
   allPokemons: [],
   pokemonsFilter: [],
-};
+ };
 
 const roorReducer = (state = initialState, action) => {
   switch (action.type) {
     case ALL_POKEMONS:
       return {
         ...state,
-        allPokemons: action.payload,
-        pokemonsFilter: action.payload,
-      };
+        allPokemons: action.payload.results,
+        pokemonsFilter: action.payload.results,
+        };
     case ALL_TYPES:
       return {
         ...state,

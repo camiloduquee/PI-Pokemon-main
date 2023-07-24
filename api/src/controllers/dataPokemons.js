@@ -22,32 +22,32 @@ const dataPokemons = async (URL, limit, offset) => {
       return dataFind(data);
     });
     data.results = await Promise.all(promise);
-    data.results = pokemonsDB.concat(data.results);
-    return data;
-  }
 
-  async function recursiveFetch(url, accumulatedData = []) {
-    const data = await fetchData(url);
-    accumulatedData = accumulatedData.concat(data.results);
-    const dataApi = {};
-    dataApi.results = accumulatedData;
-
-    if (data.next) {
-      return recursiveFetch(data.next, accumulatedData);
-    }
-
+    const dataApi = {
+      next: data.next
+        ? data.next.replace(
+            "https://pokeapi.co/api/v2/pokemon",
+            "http://localhost:3001/pokemons"
+          )
+        : null,
+      previous: data.previous
+        ? data.previous.replace(
+            "https://pokeapi.co/api/v2/pokemon",
+            "http://localhost:3001/pokemons"
+          )
+        : null,
+      results: pokemonsDB.concat(data.results),
+    };
+    
     return dataApi;
   }
 
   async function main() {
     if (limit || offset) {
-      const { results } = await fetchData(
-        `${URL}?offset=${offset}&limit=${limit}`
-      );
+      const results = await fetchData(`${URL}?offset=${offset}&limit=${limit}`);
       return results;
     }
-
-    const { results } = await recursiveFetch(`${URL}?offset=${0}&limit=${120}`);
+    const results = await recursiveFetch(`${URL}?offset=${0}&limit=${120}`);
 
     return results;
   }

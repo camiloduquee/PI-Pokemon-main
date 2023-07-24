@@ -3,8 +3,7 @@ import { ALL_POKEMONS, ALL_TYPES, FILTER_TYPES, FILTER_ORIGEN, ORDEN, ORDEN_ALFA
 
 export const allPokemons = (URL) => {
   return async function (dispatch) {
-    const timeout = 60000;
-    const { data } = await axios.get(URL, { timeout });
+     const { data } = await axios.get(URL);
     dispatch({ type: ALL_POKEMONS, payload: data });
   };
 };

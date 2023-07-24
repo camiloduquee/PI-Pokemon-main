@@ -13,10 +13,10 @@ const pokemonNew = async (post, URL) => {
     });
 
   if (responseApi === 200)
-    throw new Error("Error, ya existe un pokemon con este nombre");
+    throw new Error("Error, a pokemon with this name already exists.");
 
   if (!post.Tipo.every(currentValue)) {
-    throw new Error("Error, Datos incorrectos en el Tipo de Pokemon");
+    throw new Error("Error, Incorrect Pokemon Type Data.");
   }
 
   const [newPokemon, created] = await Pokemon.findOrCreate({
@@ -33,7 +33,7 @@ const pokemonNew = async (post, URL) => {
   });
   if (!created) {
     throw new Error(
-      "Error, este pokemon ya se encuentra registrado en la base de datos"
+      "Error, this pokemon is already registered in the database."
     );
   }
   await newPokemon.addTypes(post.Tipo);

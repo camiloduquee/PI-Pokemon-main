@@ -36,7 +36,7 @@ const SearchBar = () => {
         <input
           className={style.input}
           type="search"
-          placeholder="Ingresa un ID o Nombre"
+          placeholder="Enter an ID or Name"
           onChange={handleChange}
           value={searchInput}
         />
@@ -46,7 +46,7 @@ const SearchBar = () => {
       </div>
       {searchPokemon.Error && <Error menssage={searchPokemon.Error} />}
       {searchPokemon.Nombre && (
-        <Message menssage="Se encontro una coincidencia">
+        <Message menssage="A match was found">
           <button className={style.inputIcon} onClick={handleDetail}>
             <img
               className={style.img}

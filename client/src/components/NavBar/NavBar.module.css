@@ -8,12 +8,7 @@
   background: #1D3557;
   z-index: 3;
 }
-.nav_logo {
-  font-weight: bold;
-  font-size: 20px;
-  margin: 15px;
-  color: white;
-}
+
 .nav_items a{
   margin: 15px;
   color: white;
@@ -77,6 +72,8 @@
   }
 }
 .logo{
-  width: 180px;
-  height: auto;
+  padding-left: 20px;
+  width: 200px;
+  height:80%;
+  
 }

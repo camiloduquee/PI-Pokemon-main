@@ -29,6 +29,6 @@ const pokemonName = async (name, URL) => {
   if (pokemonsDB.length) {
     return pokemonsDB[0];
   }
-  throw new Error("No se encontro ningun pokemon con ese nombre.");
+  throw new Error("No pokemon with that name were found.");
 };
 module.exports = pokemonName;

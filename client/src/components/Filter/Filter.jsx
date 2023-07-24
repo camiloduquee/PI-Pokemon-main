@@ -48,40 +48,40 @@ const Filter = ({ active, setActive }) => {
     <>
       <div className={style.boxBtn}>
         <button className={style.btn} onClick={handleActiveFiltre}>
-          <img src={filterLeft} alt="Filtro" />
+          <img src={filterLeft} alt="Filter" />
         </button>
-        <span>Filtrar</span>
+        <span>Filter</span>
       </div>
       <div className={`${style.containerFilter} ${active ? style.active : ""}`}>
         <div className={style.filterTipo}>
           <div className={style.btnfilterClose}>
             <button className={style.btnClose} onClick={() => setActive(false)}>
-              <img src={filterLeft} alt="Filtro" />
+              <img src={filterLeft} alt="Filter" />
             </button>
-            <h5>Cerrar</h5>
+            <h5>Close</h5>
           </div>
           <FilterType
-            nombre="Tipo"
+            nombre="Type"
             isCheckedType={isCheckedType}
             setIsCheckedType={setIsCheckedType}
           />
           <FilterOrigin
-            nombre="Origen"
+            nombre="Origin"
             isCheckedOrigin={isCheckedOrigin}
             setIsCheckedOrigin={setIsCheckedOrigin}
           />
           <FilterOrder
-            nombre="Orden "
+            nombre="Order"
             isCheckedOrden={isCheckedOrden}
             setIsCheckedOrden={setIsCheckedOrden}
           />
           <FilterAlphabet
-            nombre="Orden Alfabético"
+            nombre="Alphabetical Order"
             isCheckedAlfa={isCheckedAlfa}
             setIsCheckedAlfa={setIsCheckedAlfa}
           />
           <FilterAttack
-            nombre="Orden Ataque"
+            nombre="Attack"
             isCheckedAttack={isCheckedAttack}
             setIsCheckedAttack={setIsCheckedAttack}
           />

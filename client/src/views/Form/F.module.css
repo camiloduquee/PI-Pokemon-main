@@ -316,6 +316,19 @@ button[disabled] {
   display: flex;
   align-items: center;
 }
+.menssageError{
+  
+  text-align: justify;
+  font-size: 16px;
+}
+.createPoke{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform:uppercase;
+}
 @media (max-width: 768px) {
   .titulo {
     padding: 10px;

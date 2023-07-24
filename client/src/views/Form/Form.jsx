@@ -162,28 +162,28 @@ const Form = () => {
       <div className={style.box}>
         <form className={style.boxForm} onSubmit={handleSubmit}>
           <div className={style.titulo}>
-            <h1>Crear Pokemón</h1>
+            <h1>Create Pokemon</h1>
           </div>
 
           <div className={style.gridOne}>
             <div className={style.inputs}>
               <div>
-                <label htmlFor="NombreForm">Nombre</label>
+                <label htmlFor="NombreForm">Name</label>
                 <input
                   id="NombreForm"
                   type="text"
-                  placeholder="Nombre del Pokemón"
+                  placeholder="Name of the Pokemon"
                   name="Nombre"
                   value={pokemonData.Nombre}
                   onChange={handleInputChange}
                 />
               </div>
               <div>
-                <label htmlFor="ImagenForm">Imagen</label>
+                <label htmlFor="ImagenForm">Image</label>
                 <input
                   id="ImagenForm"
                   type="text"
-                  placeholder="Pokemón imagen..."
+                  placeholder="Pokemón image..."
                   name="Imagen"
                   value={pokemonData.Imagen}
                   onChange={handleInputChange}
@@ -211,7 +211,7 @@ const Form = () => {
               </button>
 
               {pokemonData.Tipo.length === 0 && (
-                <div className={style.tipos}>Selecciona su tipo</div>
+                <div className={style.tipos}>Select your type</div>
               )}
               {/*          renderizado de los tipos de pokemon con su color respectivo       */}
 
@@ -235,7 +235,7 @@ const Form = () => {
 
           <div className={style.boxDate}>
             <div>
-              <label htmlFor="VidaForm">Vida</label>
+              <label htmlFor="VidaForm">Life</label>
             </div>
             <div className={style.gridTwo}>
               <div>
@@ -254,7 +254,7 @@ const Form = () => {
             </div>
 
             <div>
-              <label htmlFor="AtaqueForm">Ataque</label>
+              <label htmlFor="AtaqueForm">Attack</label>
             </div>
             <div className={style.gridTwo}>
               <div>
@@ -272,7 +272,7 @@ const Form = () => {
             </div>
 
             <div>
-              <label htmlFor="DefensaForm">Defensa</label>
+              <label htmlFor="DefensaForm">Defense</label>
             </div>
             <div className={style.gridTwo}>
               <div>
@@ -289,7 +289,7 @@ const Form = () => {
               <div className={style.count}>{pokemonData.Defensa}</div>
             </div>
             <div>
-              <label htmlFor="VelocidadForm">Velocidad</label>
+              <label htmlFor="VelocidadForm">Speed</label>
             </div>
             <div className={style.gridTwo}>
               <div>
@@ -306,7 +306,7 @@ const Form = () => {
               <div className={style.count}>{pokemonData.Velocidad}</div>
             </div>
             <div>
-              <label htmlFor="AlturaForm">Altura</label>
+              <label htmlFor="AlturaForm">Height</label>
             </div>
             <div className={style.gridTwo}>
               <div>
@@ -323,7 +323,7 @@ const Form = () => {
               <div className={style.count}>{pokemonData.Altura}</div>
             </div>
             <div>
-              <label htmlFor="PesoForm">Peso</label>
+              <label htmlFor="PesoForm">Weight</label>
             </div>
             <div className={style.gridTwo}>
               <div>
@@ -346,7 +346,7 @@ const Form = () => {
             changeStatus={setEstadoModal}
             setPokemonData={setPokemonData}
             pokemonData={pokemonData}
-            titulo="Tipos de pokemón"
+            titulo="Types of pokemon"
           >
             <div className={style.contenido}>
               {Tipos.map((tipo) => {
@@ -370,7 +370,7 @@ const Form = () => {
                 onClick={handleAddTypes}
                 disabled={errors.Tipo ? true : false}
               >
-                Agregar
+                Select
               </button>
             </div>
           </Modal>
@@ -379,15 +379,15 @@ const Form = () => {
             changeStatus={setStateMenss}
             setPokemonData={setPokemonData}
             pokemonData={pokemonData}
-            titulo="Alerta"
+            titulo="Alert"
           >
             <div className={style.contenido}>
               <div>
                 {menssage.Error && <p>{menssage.Error}</p>}
                 {menssage.Nombre && (
-                  <p>
-                    {`Se ha creado satisfactoreamente tu pokemon con el nombre ${menssage.Nombre}`}
-                  </p>
+                  <div className={style.menssageError}>
+                    {` Congratulations, you have successfully created your pokemon with the name `}<div className={style.createPoke}>{` "${menssage.Nombre}"`}</div>
+                  </div>
                 )}
               </div>
             </div>
@@ -395,16 +395,18 @@ const Form = () => {
           <Modal
             state={estadoModaError}
             changeStatus={setEstadoModalError}
-            setPokemonData={setPokemonData}
+            // setPokemonData={setPokemonData}
             pokemonData={pokemonData}
-            titulo="Alerta"
+            titulo="Alert"
           >
-            {errors.Nombre && <p>{errors.Nombre}</p>}
-            {errors.Imagen && <p>{errors.Imagen}</p>}
-            {errors.Vida === 0 ? "" : <p>{errors.Vida}</p>}
-            {errors.Ataque === 0 ? "" : <p>{errors.Ataque}</p>}
-            {errors.Defensa === 0 ? "" : <p>{errors.Defensa}</p>}
-            {errors.Tipo && <p>{errors.Tipo}</p>}
+            <div className={style.menssageError}>
+            {errors.Nombre && <div>{errors.Nombre}</div>}
+            {errors.Imagen && <div>{errors.Imagen}</div>}
+            {errors.Vida === 0 ? "" : <div>{errors.Vida}</div>}
+            {errors.Ataque === 0 ? "" : <div>{errors.Ataque}</div>}
+            {errors.Defensa === 0 ? "" : <div>{errors.Defensa}</div>}
+            {errors.Tipo && <div>{errors.Tipo}</div>}
+            </div>
           </Modal>
           <div className={style.containetButtonSubmit}>
             <div>
@@ -413,7 +415,7 @@ const Form = () => {
                 type="submit"
                 disabled={!Object.values(errors).length ? false : true}
               >
-                Crear
+                Create
               </button>
             </div>
             {!Object.values(errors).length ? (
@@ -428,7 +430,7 @@ const Form = () => {
                   setEstadoModalError(!estadoModaError);
                 }}
               >
-                <img src={infoSvg} title="Errores" />
+                <img src={infoSvg} title="Errors" />
               </button>
             )}
           </div>

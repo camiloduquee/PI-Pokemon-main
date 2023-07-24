@@ -1,26 +1,30 @@
 import React from "react";
 import style from "./Modal.module.css";
 
-const Modal = ({ children, state, changeStatus, setPokemonData, pokemonData,titulo }) => {
+const Modal = ({
+  children,
+  state,
+  changeStatus,
+  setPokemonData,
+  pokemonData,
+  titulo,
+}) => {
+  const handleOnClick = () => {
+    if (setPokemonData) {
+      setPokemonData({
+        ...pokemonData,
+        Tipo: [],
+      });
+    }
+    changeStatus(false);
+  };
   return (
     <>
       {state && (
         <div className={style.overlay}>
           <div className={style.container}>
-            <div className={style.title}>
-              {titulo}
-            </div>
-            <button
-              className={style.button}
-              onClick={() => {
-                setPokemonData({
-                  ...pokemonData,
-                  Tipo:[],
-                });
-                changeStatus(false);
-                
-              }}
-            >
+            <div className={style.title}>{titulo}</div>
+            <button className={style.button} onClick={handleOnClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

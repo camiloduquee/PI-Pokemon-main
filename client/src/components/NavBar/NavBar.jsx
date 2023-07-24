@@ -7,12 +7,12 @@ const NavBar = () => {
 
   return (
     <div className={style.navbar}>
-      <div className={style.nav_logo}>
+      
         <img src={logoPokemon} className={style.logo}/>
-      </div>
+      
       <div className={`${style.nav_items} ${isNavExpanded && style.open} `}>
-        <Link to={"/home"}>Inicio</Link>
-        <Link to={"/form"}>Crea un Pokemón</Link>
+        <Link to={"/home"}>Home</Link>
+        <Link to={"/form"}>Create Pokemón</Link>
         {/* <Link to={"/about"}>Sobre mi </Link> */}
       </div>
       <div className={`${style.nav_toggle} ${isNavExpanded && style.open}`} onClick={() => setIsNavExpanded(!isNavExpanded)}>

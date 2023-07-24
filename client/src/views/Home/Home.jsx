@@ -4,32 +4,43 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allPokemons, allTypes } from "../../redux/actions";
-import  Loader  from "../../components/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import style from "./Home.module.css";
 import Filter from "../../components/Filter/Filter";
 import Footer from "../../components/Footer/Footer";
-
+import axios from "axios";
 const Home = () => {
+  const pokemons = useSelector((state) => state.allPokemons);
   const dispatch = useDispatch();
-  const pokemons = useSelector(state => state.allPokemons);
-  
-  
-  
+
+  // ---------------- paginado ----------
+
+  const [next, setNext] = useState(null);
+  const [previous, setPrevius] = useState(null);
+  const [currentLink, setCurrentLink] = useState(
+    "http://localhost:3001/pokemons?offset=0&limit=60"
+  );
+
+  // -------------------
   const [pokemonsPage, setPokemonsPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
   const lastIndex = currentPage * pokemonsPage;
   const firstIndex = lastIndex - pokemonsPage;
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    dispatch(allPokemons("http://localhost:3001/pokemons"));
-    dispatch(allTypes("http://localhost:3001/types"));      
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   dispatch(allPokemons("http://localhost:3001/pokemons?offset=100000&limit=0"));
-        
-  // }, []);
+  useEffect(() => {
+    async function url() {
+      const { data } = await axios(currentLink);
+      setNext(data.next);
+      setPrevius(data.previous);
+      setIsLoading(false);
+    }
+    url();
+    dispatch(allPokemons(currentLink));
+    dispatch(allTypes("http://localhost:3001/types"));
+  }, [currentLink]);
 
   return (
     <>
@@ -37,27 +48,31 @@ const Home = () => {
         <div className={style.containerTop}>
           <SearchBar />
         </div>
-        {!pokemons.length && <Loader />}
-        <div className={style.fondo}>
-          <Filter active={active} setActive={setActive} />
-          
-          <CardsContainer
-            lastIndex={lastIndex}
-            firstIndex={firstIndex}
-            active={active}
-          />
-          <div className={style.containerPage}>
-            <Pagination
-              pokemonsPage={pokemonsPage}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className={style.fondo}>
+            <Filter active={active} setActive={setActive} />
+
+            <CardsContainer
+              lastIndex={lastIndex}
+              firstIndex={firstIndex}
               active={active}
             />
+            <div className={style.containerPage}>
+              <Pagination
+                pokemonsPage={pokemonsPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                active={active}
+                next={next}
+                previous={previous}
+                setCurrentLink={setCurrentLink}
+                setIsLoading={setIsLoading}
+              />
+            </div>
           </div>
-
-          
-         
-        </div>
+        )}
 
         <Footer />
       </div>
