@@ -1,6 +1,6 @@
 // ----------- rutas ----------
-const endpoint = "http://localhost:3001";
-// const endpoint = "https://pi-pokemon-main-production.up.railway.app";
+// const endpoint = "http://localhost:3001";
+const endpoint = "https://pi-pokemon-main-production.up.railway.app";
 const l_gitHub = "https://github.com/camiloduquee/PI-Pokemon-main";
 const l_linkedin = "#";
 
