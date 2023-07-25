@@ -1,8 +1,6 @@
 // ----------- rutas ----------
-import axios from "axios";
-
- 
-const endpoint = "http://localhost:3001";
+// const endpoint = "http://localhost:3001";
+const endpoint = "https://pi-pokemon-main-production.up.railway.app";
 const l_gitHub = "#";
 const l_linkedin = "#";
 // axios.defaults.baseURL = `${endpoint}`;

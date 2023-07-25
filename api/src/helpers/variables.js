@@ -1,6 +1,5 @@
 const URL = "https://pokeapi.co/api/v2";
 const axios = require("axios");
-
 const {sequelize, Type} = require('../db.js');
 
 const dataFind = (data) => {
