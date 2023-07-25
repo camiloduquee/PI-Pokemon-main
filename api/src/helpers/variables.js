@@ -1,6 +1,8 @@
 const URL = "https://pokeapi.co/api/v2";
 const axios = require("axios");
 
+const {sequelize, Type} = require('../db.js');
+
 const dataFind = (data) => {
   const obj = {
     ID: data.id,
@@ -21,9 +23,21 @@ const dataFind = (data) => {
 
   return obj;
 };
-const initTableTypes = async (Type) => {
-  const { data } = await axios(`${URL}/type`);
-  const type = data.results.map((type) => ({ ["Nombre"]: type.name }));
-  (await Type.count()) === 0 ? await Type.bulkCreate(type) : Type;
+async function checkTableExists(tableName) {
+  try {
+    await sequelize.queryInterface.describeTable(tableName);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+const initTableTypes = async () => {
+  const tableExists = await checkTableExists("Types");
+  if (!tableExists) {
+    const { data } = await axios(`${URL}/type`);
+    const result = data.results.map((type) => ({ ["Nombre"]: type.name }));
+    return await Type.bulkCreate(result);
+   
+  }
 };
 module.exports = { dataFind, initTableTypes };

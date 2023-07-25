@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
-const {initTableTypes} = require("../src/helpers/variables")
+// const {initTableTypes} = require("../src/helpers/variables")
 
 const sequelize = new Sequelize(
    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
@@ -46,8 +46,9 @@ const { Pokemon, Type } = sequelize.models;
 // Product.hasMany(Reviews);
 Pokemon.belongsToMany(Type, {through: 'pokemon_Type', timestamps: false  });
 Type.belongsToMany(Pokemon, {through: 'pokemon_Type', timestamps: false  });
-initTableTypes(Type);
+// initTableTypes(Type);
 module.exports = {
-   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+   ...sequelize.models,
+   sequelize, // para poder importar los modelos así: const { Product, User } = require('./db.js');
    conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
