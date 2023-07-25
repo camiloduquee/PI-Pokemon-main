@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { Pokemon, Type } = require("../db");
-const { dataFind, endpoint } = require("../helpers/variables");
+const { dataFind, endPointApi } = require("../helpers/variables");
 
 const dataPokemons = async (URL, limit, offset) => {
   const pokemonsDB = await Pokemon.findAll({
@@ -27,13 +27,13 @@ const dataPokemons = async (URL, limit, offset) => {
       next: data.next
         ? data.next.replace(
             "https://pokeapi.co/api/v2/pokemon",
-            `${endpoint}/pokemons`
+            `${endPointApi}/pokemons`
           )
         : null,
       previous: data.previous
         ? data.previous.replace(
             "https://pokeapi.co/api/v2/pokemon",
-            `${endpoint}/pokemons`
+            `${endPointApi}/pokemons`
           )
         : null,
       results: pokemonsDB.concat(data.results),

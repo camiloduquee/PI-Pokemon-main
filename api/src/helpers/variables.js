@@ -1,7 +1,9 @@
 const URL = "https://pokeapi.co/api/v2";
 const axios = require("axios");
 const {sequelize, Type} = require('../db.js');
-const endpoint = "https://pi-pokemon-main-orcin.vercel.app";
+const endPointClient = "https://pi-pokemon-main-orcin.vercel.app";
+const endPointApi = "https://pi-pokemon-main-production.up.railway.app";
+
 const dataFind = (data) => {
   const obj = {
     ID: data.id,
@@ -39,4 +41,4 @@ const initTableTypes = async () => {
    
   }
 };
-module.exports = { dataFind, initTableTypes, endpoint };
+module.exports = { dataFind, initTableTypes, endPointClient, endPointApi };
