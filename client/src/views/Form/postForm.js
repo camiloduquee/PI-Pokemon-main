@@ -3,7 +3,7 @@ import { endpoint } from "../../helpers/variables";
 
 const postForm = async (newPokemon) => {
   try {
-    const { data } = await axios.post(endpoint, newPokemon);
+    const { data } = await axios.post(`${endpoint}/pokemons`, newPokemon);
       return data[0];
   } catch (error) {
       return { Error: error.response.data };

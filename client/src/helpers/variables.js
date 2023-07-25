@@ -3,7 +3,7 @@
 const endpoint = "https://pi-pokemon-main-production.up.railway.app";
 const l_gitHub = "#";
 const l_linkedin = "#";
-// axios.defaults.baseURL = `${endpoint}`;
+
 // ------------Traductor --------------
 
 const TraductorTipos = [
