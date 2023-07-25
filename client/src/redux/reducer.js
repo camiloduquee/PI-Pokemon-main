@@ -56,7 +56,7 @@ const roorReducer = (state = initialState, action) => {
       };
     case ORDEN:
       const comparator = (a, b) =>
-        action.payload === "Ascendente" ? a.ID - b.ID : b.ID - a.ID;
+        action.payload === "Ascendant" ? a.ID - b.ID : b.ID - a.ID;
       return {
         ...state,
         pokemonsFilter: [...state.pokemonsFilter].sort(comparator),
