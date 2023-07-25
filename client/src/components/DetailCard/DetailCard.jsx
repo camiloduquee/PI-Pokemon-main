@@ -4,7 +4,7 @@ import ImageComp from "../../helpers/ImgComparador/ImageComp";
 import TypesName from "../TypesName/TypesName";
 import Loader from "../Loader/Loader";
 import Footer from "../Footer/Footer";
-import { ProgressBar } from "./StyledBarra";
+import { ProgressBar, BackgroundTypeColor } from "./StyledBarra";
 import { useState } from "react";
 
 const DetailCard = ({ character }) => {
@@ -13,13 +13,13 @@ const DetailCard = ({ character }) => {
   const backToTheHome = () => {
     navigate("/home");
   };
-
+  
   return (
     <>
       {!character.Nombre ? (
         <Loader />
       ) : (
-        <div className={style.contanerDetail}>
+        <BackgroundTypeColor color={character.Types} >
           {/*         seccion 1           */}
 
           <div className={style.box}>
@@ -173,7 +173,7 @@ const DetailCard = ({ character }) => {
               </div>
             </div>
           </div>
-        </div>
+        </BackgroundTypeColor>
       )}
       <Footer />
     </>

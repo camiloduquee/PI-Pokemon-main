@@ -4,6 +4,8 @@ const {sequelize, Type} = require('../db.js');
 const endPointClient = "https://pi-pokemon-main-orcin.vercel.app";
 const endPointApi = "https://pi-pokemon-main-production.up.railway.app";
 
+
+
 const dataFind = (data) => {
   const obj = {
     ID: data.id,

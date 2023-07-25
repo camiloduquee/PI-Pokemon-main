@@ -48,17 +48,17 @@ const Filter = ({ active, setActive }) => {
     <>
       <div className={style.boxBtn}>
         <button className={style.btnTwo} onClick={handleActiveFiltre}>
-          <img src={filterLeft} alt="Filter" className={style.imgFilter} />
-        </button>
         <div className={style.filterB}>Filter</div>
+        </button>
+        
       </div>
       <div className={`${style.containerFilter} ${active ? style.active : ""}`}>
         <div className={style.filterTipo}>
           <div className={style.btnfilterClose}>
             <button className={style.btnClose} onClick={() => setActive(false)}>
-              <img src={filterLeft} alt="Filter" />
+            <div>Close</div>
             </button>
-            <h5>Close</h5>
+           
           </div>
           <FilterType
             nombre="Type"

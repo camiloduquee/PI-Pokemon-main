@@ -52,17 +52,18 @@
   height: 30px;
   cursor: pointer;
   transition: 0.3s ease all;
-  background-color: #1D3557;
+  background-color: #E63946;
   
   &:hover {
-    background: #0096c7;
+    background: #457b9d;
+    color: #5c5c5c;
   }
 }
 .imgFilter{
   filter: invert(100%);
 }
 .filterB {
-  color: #fff;
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -70,24 +71,26 @@
 .btnfilterClose {
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  margin-bottom: 50px;
+  gap: 1rem;
+  margin-bottom:30px;
   
 }
 .btnClose {
+
+  width: 80px;
   align-items: flex-start;
-  background: none;
-  border: none;
+  border: 1px solid grey;
   cursor: pointer;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   cursor: pointer;
   transition: 0.3s ease all;
-  
+  font-weight: 700;
   
   &:hover {
-    background: #ce6245;
-    filter: invert(100%);
+    background: #e63946;
+    color: #fff;
+    
   }
 }
 @media (max-width: 768px) {
