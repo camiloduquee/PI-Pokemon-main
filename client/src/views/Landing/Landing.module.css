@@ -76,7 +76,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: 0.3s ease all;
-  font-size: 1.5vw;
+  font-size: 2rem;
   font-weight: 700;
   &:hover {
     background: #ffff00;
@@ -108,4 +108,5 @@
     left: 130px;
     top:220px;
   }
+ 
 }
