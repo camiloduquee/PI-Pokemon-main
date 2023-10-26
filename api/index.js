@@ -25,7 +25,7 @@ const { initTableTypes } = require("./src/helpers/variables.js");
 // Syncing all the models at once.
 
 conn
-  .sync({ force: true })
+  .sync({ alter: true })
   .then(initTableTypes())
   .then(() => {
     server.listen(process.env.PORT, () => {
