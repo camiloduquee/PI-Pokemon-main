@@ -3,6 +3,7 @@ const axios = require("axios");
 const {sequelize, Type} = require('../db.js');
 
 //link produccion
+// const endPointClient = "https://pi-pokemon-main-orcin.vercel.app";
 const endPointApi = "https://pi-pokemon-main-6psr-4903ch2mz-camiloduquee.vercel.app";
 
 
