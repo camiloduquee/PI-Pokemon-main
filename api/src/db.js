@@ -6,12 +6,14 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 // const {initTableTypes} = require("../src/helpers/variables")
 
 const sequelize = new Sequelize(
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
    {
       logging: false, // set to console.log to see the raw SQL queries
       native: false, // lets Sequelize know we can use pg-native for ~30% more speed
    }
 );
+// postgres://pokemon_coa5_user:4nE8mDXPN57pFmtcu8uRMRUQm2Nu4wYA@dpg-ckte2ueb0mos73c0k680-a/pokemon_coa5
+// postgres://pokemon_coa5_user:4nE8mDXPN57pFmtcu8uRMRUQm2Nu4wYA@dpg-ckte2ueb0mos73c0k680-a.oregon-postgres.render.com/pokemon_coa5
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
