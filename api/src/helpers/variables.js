@@ -3,12 +3,12 @@ const axios = require("axios");
 const {sequelize, Type} = require('../db.js');
 
 //link produccion
-// const endPointClient = "https://pi-pokemon-main-orcin.vercel.app";
-// const endPointApi = "https://pi-pokemon-main-production.up.railway.app";
+const endPointApi = "https://pi-pokemon-main-6psr-4903ch2mz-camiloduquee.vercel.app";
+
 
 //link en local
 const endPointClient = "http://localhost:5173";
-const endPointApi = "http://localhost:3001";
+// const endPointApi = "http://localhost:3001";
 
 const dataFind = (data) => {
   const obj = {
