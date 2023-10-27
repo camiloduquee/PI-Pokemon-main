@@ -1,8 +1,8 @@
 // ----------- rutas ----------
-const endpoint = "http://localhost:3001";
-// const endpoint = "https://pi-pokemon-main-production.up.railway.app";
+// const endpoint = "http://localhost:3001";
+const endpoint = "https://back-pokemon-uft4.onrender.com";
 const l_gitHub = "https://github.com/camiloduquee/PI-Pokemon-main";
-const l_linkedin = "#";
+const l_linkedin = "https://www.linkedin.com/in/h%C3%A9ctor-g%C3%B3mez-0a1075287";
 
 // ------------Traductor --------------
 

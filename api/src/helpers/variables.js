@@ -4,7 +4,7 @@ const {sequelize, Type} = require('../db.js');
 
 //link produccion
 // const endPointClient = "https://pi-pokemon-main-orcin.vercel.app";
- const endPointApi = "https://back-pokemon-uft4.onrender.com";
+const endPointApi = "https://back-pokemon-uft4.onrender.com";
 
 
 //link en local
